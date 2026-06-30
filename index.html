@@ -25,16 +25,16 @@
     </div>
     <nav aria-label="Sections">
       <a href="#overview">Overview</a>
+      <a href="#login">Sign In</a>
       <a href="#dashboard">Dashboard</a>
-      <a href="#demand-override">Demand Override</a>
-      <a href="#sku-allocation">SKU Allocation</a>
-      <a href="#frozen-recommendations">Frozen Recommendations</a>
+      <a href="#market-intelligence">Market Intelligence</a>
+      <a href="#settings">Settings</a>
       <a href="#workflow">Daily Workflow</a>
       <a href="#glossary">Glossary</a>
     </nav>
     <div class="sidebar-footer">
       <span>Module 4 · Cairo 3A</span>
-      <span class="version">v1.0 · May 2026</span>
+      <span class="version">v2.0 · June 2026</span>
     </div>
   </aside>
 
@@ -44,10 +44,10 @@
       <span class="kicker">Slaughterhouse Optimization</span>
       <h1>Paula <span class="hero-accent">Operations Manual</span></h1>
       <p class="lede">
-        Cairo 3A · Module 4 — the dual-mode optimization engine that decides each morning how many birds of which weight to slaughter to maximise profit, and surfaces the recommendation, scenario comparison, SKU split, and frozen-stock sell windows in one cockpit.
+        Cairo 3A · Module 4 — the dual-mode optimization engine that decides each morning how many birds of which weight to slaughter to maximise profit. The cockpit surfaces the recommended harvest plan, the ranked scenarios behind it, and the market-price forecast that informs it — all behind a single sign-in.
       </p>
       <ul class="pill-list">
-        <li>4 pages · 5 views</li>
+        <li>3 working screens + sign-in</li>
         <li>Desktop ≥ 1280 px</li>
         <li>EGP · kg · Cairo time</li>
       </ul>
@@ -56,221 +56,170 @@
       </p>
     </section>
 
+    <!-- ====== SIGN IN ====== -->
+    <section id="login" class="page-section fade-in">
+      <div class="page-header">
+        <span class="kicker">Getting in</span>
+        <h2>Sign In</h2>
+        <p class="lede">Paula is access-controlled. Enter the operator credentials to open the cockpit. Your session is remembered for the browser tab until you log out.</p>
+      </div>
+      <div class="annotated">
+        <div class="screenshot" data-page="login">
+          <img src="screenshots/login.png" alt="Paula sign-in screen" />
+          <div class="marker" style="--x:12%; --y:81%;" data-id="log-1">1</div>
+          <div class="marker" style="--x:75%; --y:49%;" data-id="log-2">2</div>
+          <div class="marker" style="--x:75%; --y:59%;" data-id="log-3">3</div>
+          <div class="marker" style="--x:75%; --y:66%;" data-id="log-4">4</div>
+        </div>
+        <ol class="callouts" data-page="login">
+          <li data-id="log-1">
+            <strong>Brand panel</strong>
+            <span>The Paula "Smart Optimize Hub" mark — confirms you're on the right cockpit.</span>
+          </li>
+          <li data-id="log-2">
+            <strong>Username</strong>
+            <span>Your operator email, supplied by the Datalentech team.</span>
+          </li>
+          <li data-id="log-3">
+            <strong>Password</strong>
+            <span>Use the eye icon to reveal what you typed before submitting.</span>
+          </li>
+          <li data-id="log-4">
+            <strong>Sign in</strong>
+            <span>Opens the Dashboard. The Log out link sits at the bottom of the sidebar.</span>
+          </li>
+        </ol>
+      </div>
+    </section>
+
     <!-- ====== DASHBOARD ====== -->
     <section id="dashboard" class="page-section fade-in">
       <div class="page-header">
         <span class="kicker">Page 1</span>
         <h2>Dashboard</h2>
-        <p class="lede">The home page. Shows the recommended cutting plan for today and the 12 ranked scenarios behind that recommendation.</p>
+        <p class="lede">The home page. Shows the recommended harvest plan across the horizon and the ranked scenarios behind that recommendation, with a day-by-day breakdown underneath.</p>
       </div>
       <div class="annotated">
         <div class="screenshot" data-page="dashboard">
           <img src="screenshots/dashboard.png" alt="Paula Dashboard" />
-          <div class="marker" style="--x:70%; --y:3.5%;" data-id="dash-1">1</div>
-          <div class="marker" style="--x:54%; --y:7.8%;" data-id="dash-2">2</div>
-          <div class="marker" style="--x:20%; --y:13.5%;" data-id="dash-3">3</div>
-          <div class="marker" style="--x:28%; --y:30%;" data-id="dash-4">4</div>
-          <div class="marker" style="--x:75%; --y:30%;" data-id="dash-5">5</div>
-          <div class="marker" style="--x:50%; --y:53%;" data-id="dash-6">6</div>
-          <div class="marker" style="--x:50%; --y:75%;" data-id="dash-7">7</div>
+          <div class="marker" style="--x:24%; --y:2.6%;" data-id="dash-1">1</div>
+          <div class="marker" style="--x:42%; --y:6.5%;" data-id="dash-2">2</div>
+          <div class="marker" style="--x:20%; --y:10%;" data-id="dash-3">3</div>
+          <div class="marker" style="--x:22%; --y:23%;" data-id="dash-4">4</div>
+          <div class="marker" style="--x:80%; --y:23%;" data-id="dash-5">5</div>
+          <div class="marker" style="--x:50%; --y:44%;" data-id="dash-6">6</div>
+          <div class="marker" style="--x:28%; --y:65%;" data-id="dash-7">7</div>
+          <div class="marker" style="--x:30%; --y:84%;" data-id="dash-8">8</div>
         </div>
         <ol class="callouts" data-page="dashboard">
           <li data-id="dash-1">
-            <strong>Header &amp; controls</strong>
-            <span>Title, date, runs history, Production / Demand toggle, and Run Optimization.</span>
+            <strong>Header &amp; export</strong>
+            <span>Page title, the harvest-plan date range, Export full plan, and Recent runs history.</span>
           </li>
           <li data-id="dash-2">
-            <strong>Fixed Cost Alert</strong>
-            <span>Warning when a scenario falls below the fixed-cost threshold.</span>
+            <strong>View &amp; run controls</strong>
+            <span>Month / Day view, the start–end date range, the Production / Demand mode, Actual prices and Packing toggles, and the red Run Optimization button.</span>
           </li>
           <li data-id="dash-3">
             <strong>KPI row</strong>
-            <span>Monthly Profit · Daily Birds · Avg Weight · Demand Coverage.</span>
+            <span>Horizon Profit · Avg Birds / day · Avg Weight · Days below FC.</span>
           </li>
           <li data-id="dash-4">
-            <strong>Today's cutting plan</strong>
-            <span>Recommended cut target, strategy, and fresh / frozen kg split.</span>
+            <strong>Profit by scenario</strong>
+            <span>Every scenario ranked by profit. The winner is the tallest bar; weaker options fade out.</span>
           </li>
           <li data-id="dash-5">
-            <strong>Profit by scenario</strong>
-            <span>All 12 scenarios ranked by profit. Winner in blue, below-FC in red.</span>
+            <strong>Fresh / frozen mix</strong>
+            <span>Donut of the fresh-vs-frozen share across the whole horizon.</span>
           </li>
           <li data-id="dash-6">
-            <strong>Output splits</strong>
-            <span>Fresh-vs-Frozen share (donut) and Light-vs-Heavy bird split (bar).</span>
+            <strong>Scenario comparison</strong>
+            <span>Full ranked table of every Light + Heavy combination — profit, status, and best strategy. Searchable and exportable.</span>
           </li>
           <li data-id="dash-7">
-            <strong>Scenario comparison</strong>
-            <span>Sortable, searchable, exportable table of all scenarios.</span>
+            <strong>Profit over time</strong>
+            <span>Daily profit across the horizon. Any day that falls below the fixed-cost line is flagged in red.</span>
+          </li>
+          <li data-id="dash-8">
+            <strong>Per-day plan</strong>
+            <span>One row per working day — strategy, Light / Heavy birds, output kg, and profit. Click a row to drill into that day.</span>
           </li>
         </ol>
       </div>
     </section>
 
-    <!-- ====== DEMAND OVERRIDE ====== -->
-    <section id="demand-override" class="page-section fade-in">
+    <!-- ====== MARKET INTELLIGENCE ====== -->
+    <section id="market-intelligence" class="page-section fade-in">
       <div class="page-header">
         <span class="kicker">Page 2</span>
-        <h2>Demand Override</h2>
-        <p class="lede">Upload a sales demand forecast to switch the engine from Production to Demand mode. The page walks you through upload, preview, comparison, then apply.</p>
+        <h2>Market Intelligence</h2>
+        <p class="lede">The forecast that feeds the engine. Shows the modelled live-bird price and the predicted selling price per product category across the planning horizon, so you can sense-check the plan against where the market is heading.</p>
       </div>
-
-      <h3>Empty state — before upload</h3>
       <div class="annotated">
-        <div class="screenshot" data-page="demand-empty">
-          <img src="screenshots/demand-override.png" alt="Demand Override before upload" />
-          <div class="marker" style="--x:38%; --y:43%;" data-id="dem-e-1">1</div>
-          <div class="marker" style="--x:38%; --y:83%;" data-id="dem-e-2">2</div>
-          <div class="marker" style="--x:78%; --y:38%;" data-id="dem-e-3">3</div>
-          <div class="marker" style="--x:78%; --y:78%;" data-id="dem-e-4">4</div>
+        <div class="screenshot" data-page="market">
+          <img src="screenshots/market-intelligence.png" alt="Market Intelligence" />
+          <div class="marker" style="--x:20%; --y:4%;" data-id="mkt-1">1</div>
+          <div class="marker" style="--x:55%; --y:9%;" data-id="mkt-2">2</div>
+          <div class="marker" style="--x:25%; --y:18%;" data-id="mkt-3">3</div>
+          <div class="marker" style="--x:25%; --y:31%;" data-id="mkt-4">4</div>
+          <div class="marker" style="--x:35%; --y:46%;" data-id="mkt-5">5</div>
+          <div class="marker" style="--x:42%; --y:68%;" data-id="mkt-6">6</div>
         </div>
-        <ol class="callouts" data-page="demand-empty">
-          <li data-id="dem-e-1">
-            <strong>Drop zone</strong>
-            <span>Drop an <code>.xlsx</code> or <code>.csv</code>, or download the template first.</span>
+        <ol class="callouts" data-page="market">
+          <li data-id="mkt-1">
+            <strong>Header &amp; tabs</strong>
+            <span>Switch between the Price Forecast view and the Weight Distribution view.</span>
           </li>
-          <li data-id="dem-e-2">
-            <strong>Demand Preview</strong>
-            <span>Populates with your categories after upload.</span>
+          <li data-id="mkt-2">
+            <strong>Range controls</strong>
+            <span>Pick a start date, set the horizon (days), choose how to group, then Load range to refresh the forecast.</span>
           </li>
-          <li data-id="dem-e-3">
-            <strong>Shortage Tolerance</strong>
-            <span>How much shortage you'll accept per category (default 10%).</span>
+          <li data-id="mkt-3">
+            <strong>KPI row</strong>
+            <span>SKUs in view · Avg predicted price (EGP/kg) · Horizon trend · Market coverage.</span>
           </li>
-          <li data-id="dem-e-4">
-            <strong>Comparison area</strong>
-            <span>Production vs Demand side-by-side appears after upload.</span>
+          <li data-id="mkt-4">
+            <strong>Live bird price</strong>
+            <span>The modelled farm-gate live-bird price driving all downstream SKU prices.</span>
           </li>
-        </ol>
-      </div>
-
-      <h3>After upload — preview, compare, apply</h3>
-      <div class="annotated">
-        <div class="screenshot" data-page="demand-uploaded">
-          <img src="screenshots/demand-uploaded.png" alt="Demand Override after upload" />
-          <div class="marker" style="--x:42%; --y:13%;" data-id="dem-u-1">1</div>
-          <div class="marker" style="--x:78%; --y:11%;" data-id="dem-u-2">2</div>
-          <div class="marker" style="--x:40%; --y:55%;" data-id="dem-u-3">3</div>
-          <div class="marker" style="--x:68%; --y:55%;" data-id="dem-u-4">4</div>
-          <div class="marker" style="--x:87%; --y:55%;" data-id="dem-u-5">5</div>
-          <div class="marker" style="--x:82%; --y:88%;" data-id="dem-u-6">6</div>
-        </div>
-        <ol class="callouts" data-page="demand-uploaded">
-          <li data-id="dem-u-1">
-            <strong>Uploaded file</strong>
-            <span>Name, size, category count. Trash icon removes it.</span>
+          <li data-id="mkt-5">
+            <strong>Predicted price by category</strong>
+            <span>Forecast selling price per category over time. Use the legend on the right to compare or isolate categories.</span>
           </li>
-          <li data-id="dem-u-2">
-            <strong>Shortage Tolerance</strong>
-            <span>0% strict to 100% loose. Default 10%.</span>
-          </li>
-          <li data-id="dem-u-3">
-            <strong>Demand Preview</strong>
-            <span>Top categories with priority badges and vs-history deltas.</span>
-          </li>
-          <li data-id="dem-u-4">
-            <strong>Production (Before)</strong>
-            <span>The current Production-mode plan, for comparison.</span>
-          </li>
-          <li data-id="dem-u-5">
-            <strong>Demand (After)</strong>
-            <span>The re-optimised plan from your upload.</span>
-          </li>
-          <li data-id="dem-u-6">
-            <strong>Apply or keep</strong>
-            <span>Commit the new plan, or dismiss the upload.</span>
+          <li data-id="mkt-6">
+            <strong>Price grid</strong>
+            <span>The full day-by-day predicted price table per category. Export to CSV.</span>
           </li>
         </ol>
       </div>
     </section>
 
-    <!-- ====== SKU ALLOCATION ====== -->
-    <section id="sku-allocation" class="page-section fade-in">
+    <!-- ====== SETTINGS ====== -->
+    <section id="settings" class="page-section fade-in">
       <div class="page-header">
         <span class="kicker">Page 3</span>
-        <h2>SKU Allocation</h2>
-        <p class="lede">Shows how the recommended kilograms split into individual sale items (SKUs) by packaging and category. The packing floor reads this page to know what to fill and how much.</p>
+        <h2>Settings</h2>
+        <p class="lede">Manage backend access and review — read-only — the parameters and cutting recipes the optimization engine runs on. This is the page to open the first time a browser connects to the live backend.</p>
       </div>
       <div class="annotated">
-        <div class="screenshot" data-page="sku-allocation">
-          <img src="screenshots/sku-allocation.png" alt="SKU Allocation" />
-          <div class="marker" style="--x:88%; --y:3.5%;" data-id="sku-1">1</div>
-          <div class="marker" style="--x:50%; --y:9%;" data-id="sku-2">2</div>
-          <div class="marker" style="--x:22%; --y:20%;" data-id="sku-3">3</div>
-          <div class="marker" style="--x:50%; --y:20%;" data-id="sku-4">4</div>
-          <div class="marker" style="--x:80%; --y:20%;" data-id="sku-5">5</div>
-          <div class="marker" style="--x:35%; --y:33%;" data-id="sku-6">6</div>
-          <div class="marker" style="--x:50%; --y:67%;" data-id="sku-7">7</div>
+        <div class="screenshot" data-page="settings">
+          <img src="screenshots/settings.png" alt="Settings" />
+          <div class="marker" style="--x:28%; --y:11%;" data-id="set-1">1</div>
+          <div class="marker" style="--x:28%; --y:24%;" data-id="set-2">2</div>
+          <div class="marker" style="--x:28%; --y:40%;" data-id="set-3">3</div>
         </div>
-        <ol class="callouts" data-page="sku-allocation">
-          <li data-id="sku-1">
-            <strong>Mode toggle</strong>
-            <span>Demand-based sorts by Coverage. Profit-based sorts by Margin.</span>
+        <ol class="callouts" data-page="settings">
+          <li data-id="set-1">
+            <strong>API Access</strong>
+            <span>Paste the backend API key for this browser. It's sent as <code>X-API-Key</code> on every live request. Use Test connection to confirm it works, then Save.</span>
           </li>
-          <li data-id="sku-2">
-            <strong>KPI row</strong>
-            <span>Total SKUs, overall coverage, total allocated kg, shortage kg.</span>
+          <li data-id="set-2">
+            <strong>Configuration</strong>
+            <span>A live, read-only view of the engine's parameters, grouped by namespace (capacity, calendar, costs, …). Pick a namespace to inspect its keys.</span>
           </li>
-          <li data-id="sku-3">
-            <strong>Packaging Mix</strong>
-            <span>Donut of the 900 g / 1.2 kg / 1.5 kg pack-size split.</span>
-          </li>
-          <li data-id="sku-4">
-            <strong>Coverage by category</strong>
-            <span>Horizontal bars per category. Red = below target.</span>
-          </li>
-          <li data-id="sku-5">
-            <strong>Demand vs Allocated</strong>
-            <span>Worst-performing SKUs at a glance.</span>
-          </li>
-          <li data-id="sku-6">
-            <strong>Category tabs</strong>
-            <span>Filter the table to one category.</span>
-          </li>
-          <li data-id="sku-7">
-            <strong>SKU table</strong>
-            <span>Per-SKU detail. Searchable and exportable.</span>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <!-- ====== FROZEN RECOMMENDATIONS ====== -->
-    <section id="frozen-recommendations" class="page-section fade-in">
-      <div class="page-header">
-        <span class="kicker">Page 4</span>
-        <h2>Frozen Recommendations</h2>
-        <p class="lede">Timing, priority, and pricing decisions for frozen inventory. Tells you which frozen categories to hold and which to sell in the coming weeks so you minimise carrying cost and maximise recovery.</p>
-      </div>
-      <div class="annotated">
-        <div class="screenshot" data-page="frozen">
-          <img src="screenshots/frozen-recommendations.png" alt="Frozen Recommendations" />
-          <div class="marker" style="--x:32%; --y:11%;" data-id="frz-1">1</div>
-          <div class="marker" style="--x:50%; --y:18%;" data-id="frz-2">2</div>
-          <div class="marker" style="--x:90%; --y:30%;" data-id="frz-3">3</div>
-          <div class="marker" style="--x:55%; --y:46%;" data-id="frz-4">4</div>
-          <div class="marker" style="--x:50%; --y:81%;" data-id="frz-5">5</div>
-        </div>
-        <ol class="callouts" data-page="frozen">
-          <li data-id="frz-1">
-            <strong>Hold / Sell legend</strong>
-            <span>Grey = hold in cold storage. Blue = sell window.</span>
-          </li>
-          <li data-id="frz-2">
-            <strong>KPI row</strong>
-            <span>Total stock, accumulated carry cost, active sell windows, expected recovery.</span>
-          </li>
-          <li data-id="frz-3">
-            <strong>Month selector</strong>
-            <span>Filter by month.</span>
-          </li>
-          <li data-id="frz-4">
-            <strong>Sell window timeline</strong>
-            <span>Per-category weekly hold / sell plan. Hover any bar for date and stock detail.</span>
-          </li>
-          <li data-id="frz-5">
-            <strong>Storage cost accumulation</strong>
-            <span>Weekly carry-cost growth if stock isn't sold.</span>
+          <li data-id="set-3">
+            <strong>Cutting Options</strong>
+            <span>The active cutting recipes from the engine, grouped by option (Chest Deboning, Whole Chicken, Whole Leg Cutting, …) with per-product yield and supply percentages.</span>
           </li>
         </ol>
       </div>
@@ -281,18 +230,19 @@
       <div class="page-header">
         <span class="kicker">Day in the life</span>
         <h2>A typical day with Paula</h2>
-        <p class="lede">A common morning routine takes 10–15 minutes.</p>
+        <p class="lede">A common morning routine takes 5–10 minutes.</p>
       </div>
       <ol class="numbered-list">
-        <li><strong>Open Paula</strong> — you land on the Dashboard with the latest run already loaded.</li>
-        <li><strong>Glance at the KPI row</strong> — Monthly Profit, Daily Birds, Avg Weight, Demand Coverage.</li>
-        <li><strong>Check for a Fixed Cost Alert</strong> — if the banner appears, expand the scenario comparison table and review the red rows.</li>
-        <li><strong>Confirm today's cutting plan</strong> — make sure the cutting target, strategy, and fresh / frozen kg match the day's production capacity.</li>
-        <li><strong>If sales shared a new forecast</strong> — open Demand Upload, drop in the file, compare Production (Before) vs Demand (After), and Apply if the new plan is better.</li>
-        <li><strong>Open SKU Allocation</strong> — confirm coverage of high-priority categories. Switch to Profit-based to scan for low-margin SKUs.</li>
-        <li><strong>Open Frozen Recommendations</strong> — note which categories are in their sell window this week and brief the cold-storage team.</li>
+        <li><strong>Sign in</strong> — open Paula and enter your operator credentials.</li>
+        <li><strong>Land on the Dashboard</strong> — the latest optimization run is already loaded for the current horizon.</li>
+        <li><strong>Glance at the KPI row</strong> — Horizon Profit, Avg Birds / day, Avg Weight, and Days below FC.</li>
+        <li><strong>Scan Profit by scenario</strong> — confirm the recommended scenario and check whether any options fall below the fixed-cost line.</li>
+        <li><strong>Read the per-day plan</strong> — make sure each day's strategy and Light / Heavy split matches production capacity; click a day to drill in if a number looks off.</li>
+        <li><strong>Open Market Intelligence</strong> — sanity-check the plan against the forecast live-bird price and the predicted price per category for the days ahead.</li>
+        <li><strong>Re-run if needed</strong> — adjust the range or mode on the Dashboard and press Run Optimization, then Export full plan.</li>
         <li><strong>Share the approved plan</strong> with the packing floor and freezer teams.</li>
       </ol>
+      <p class="note">First time on a new browser? Open <strong>Settings → API Access</strong>, paste the backend key, Test connection, and Save before the live data will load.</p>
     </section>
 
     <!-- ====== GLOSSARY ====== -->
@@ -303,22 +253,24 @@
       </div>
       <dl class="glossary">
         <dt>EGP</dt><dd>Egyptian pound — currency unit throughout Paula.</dd>
+        <dt>Horizon</dt><dd>The planning window the optimization run covers — a range of working days (e.g. 30 days).</dd>
         <dt>Light bird</dt><dd>Chicken in the lighter weight class, average ≈ 1.5 kg.</dd>
         <dt>Heavy bird</dt><dd>Chicken in the heavier weight class, average ≈ 2 kg.</dd>
         <dt>Fresh</dt><dd>Product sold this month, not frozen.</dd>
         <dt>Frozen</dt><dd>Product moved to cold storage to be sold next month or later.</dd>
-        <dt>Strategy</dt><dd>How the day's output splits across fresh and frozen: All Fresh, All Frozen, or Mixed.</dd>
-        <dt>Scenario</dt><dd>One of 12 combinations of Light + Heavy birds the engine evaluates each run.</dd>
+        <dt>Strategy</dt><dd>How a day's output splits across fresh and frozen: All Fresh, All Frozen, or Mixed.</dd>
+        <dt>Scenario</dt><dd>One combination of Light + Heavy birds the engine evaluates each run.</dd>
+        <dt>Production mode</dt><dd>Default mode — the engine maximises profit from available supply.</dd>
+        <dt>Demand mode</dt><dd>Alternative mode that biases the plan toward a supplied demand forecast.</dd>
         <dt>Fixed cost (FC)</dt><dd>The fixed-cost threshold the operation must beat. Currently 41.4 million EGP.</dd>
         <dt>Best</dt><dd>The scenario with the highest expected profit — the engine's recommendation.</dd>
         <dt>Viable</dt><dd>A scenario that clears the fixed cost but is not the top performer.</dd>
-        <dt>Below FC</dt><dd>A scenario whose expected profit is below the fixed-cost threshold; shown in red.</dd>
-        <dt>Coverage</dt><dd>Percentage of demand satisfied by the allocated quantity.</dd>
-        <dt>Margin</dt><dd>Contribution percentage of an SKU — the higher, the more profitable per kilogram.</dd>
-        <dt>SKU</dt><dd>A specific sale item, identified by a code such as SKU-BRE-900.</dd>
-        <dt>Packaging</dt><dd>Pack size used to ship a SKU: 900 g tray, 1.2 kg bulk, or 1.5 kg premium.</dd>
-        <dt>Sell window</dt><dd>A recommended week (or range of weeks) to sell a frozen category to minimise carrying cost.</dd>
-        <dt>Carry cost</dt><dd>Daily storage cost per kilogram of frozen product.</dd>
+        <dt>Below FC</dt><dd>A day or scenario whose expected profit is below the fixed-cost threshold; flagged in red.</dd>
+        <dt>Live bird price</dt><dd>The modelled farm-gate price per kg of live chicken that drives all downstream selling prices.</dd>
+        <dt>Market coverage</dt><dd>Share of forecast SKUs the model has a reliable price for.</dd>
+        <dt>Namespace</dt><dd>A group of related engine parameters on the Settings page (e.g. capacity, calendar, costs).</dd>
+        <dt>Cutting option</dt><dd>A cutting recipe the engine can apply (e.g. Chest Deboning, Whole Chicken), defining how a carcass splits into products.</dd>
+        <dt>API key</dt><dd>The backend access key entered in Settings, sent as <code>X-API-Key</code> on every live request.</dd>
       </dl>
     </section>
 

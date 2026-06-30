@@ -534,6 +534,20 @@ main {
 }
 .bulleted li strong { color: var(--text-primary); font-weight: 600; }
 
+.note {
+  max-width: 760px;
+  margin-top: 20px;
+  padding: 14px 18px 14px 16px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  background: var(--brand-primary-bg);
+  border: 1px solid var(--border-subtle);
+  border-left: 3px solid var(--brand-primary);
+  border-radius: var(--radius-sm);
+}
+.note strong { color: var(--brand-primary-fg); font-weight: 600; }
+
 /* ====== LIGHTBOX ====== */
 .lightbox {
   position: fixed;
