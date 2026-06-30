@@ -13,7 +13,7 @@ Built with vanilla HTML + CSS + JS — no framework, no build step, no dependenc
 | `index.html`         | Page structure and content                                |
 | `styles.css`         | Paula-branded design system, layout, responsive rules     |
 | `app.js`             | Marker ↔ callout sync, lightbox, sidebar active state     |
-| `screenshots/`       | The five page screenshots (PNG)                           |
+| `screenshots/`       | The four screen screenshots (PNG): login, dashboard, market-intelligence, settings |
 | `.nojekyll`          | Tells GitHub Pages to skip Jekyll processing              |
 
 ---
