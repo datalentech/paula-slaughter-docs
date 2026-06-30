@@ -29,6 +29,12 @@
       <a href="#dashboard">Dashboard</a>
       <a href="#market-intelligence">Market Intelligence</a>
       <a href="#settings">Settings</a>
+      <!-- Archived pages — no longer surfaced in the deployed app. Sections preserved
+           (commented out) further down so they can be re-enabled if the pages return:
+      <a href="#demand-override">Demand Override</a>
+      <a href="#sku-allocation">SKU Allocation</a>
+      <a href="#frozen-recommendations">Frozen Recommendations</a>
+      -->
       <a href="#workflow">Daily Workflow</a>
       <a href="#glossary">Glossary</a>
     </nav>
@@ -224,6 +230,181 @@
         </ol>
       </div>
     </section>
+
+    <!-- ============================================================ -->
+    <!-- ARCHIVED SECTIONS — pages the deployed app no longer surfaces -->
+    <!-- (Demand Override, SKU Allocation, Frozen Recommendations).    -->
+    <!-- Kept here, commented out, so they can be restored if the      -->
+    <!-- pages come back. Their screenshots remain in screenshots/.    -->
+    <!-- To re-enable: uncomment the block below + the nav links above. -->
+    <!-- ============================================================ -->
+    <!--
+    <section id="demand-override" class="page-section fade-in">
+      <div class="page-header">
+        <span class="kicker">Archived</span>
+        <h2>Demand Override</h2>
+        <p class="lede">Upload a sales demand forecast to switch the engine from Production to Demand mode. The page walks you through upload, preview, comparison, then apply.</p>
+      </div>
+
+      <h3>Empty state &mdash; before upload</h3>
+      <div class="annotated">
+        <div class="screenshot" data-page="demand-empty">
+          <img src="screenshots/demand-override.png" alt="Demand Override before upload" />
+          <div class="marker" style="--x:38%; --y:43%;" data-id="dem-e-1">1</div>
+          <div class="marker" style="--x:38%; --y:83%;" data-id="dem-e-2">2</div>
+          <div class="marker" style="--x:78%; --y:38%;" data-id="dem-e-3">3</div>
+          <div class="marker" style="--x:78%; --y:78%;" data-id="dem-e-4">4</div>
+        </div>
+        <ol class="callouts" data-page="demand-empty">
+          <li data-id="dem-e-1">
+            <strong>Drop zone</strong>
+            <span>Drop an .xlsx or .csv, or download the template first.</span>
+          </li>
+          <li data-id="dem-e-2">
+            <strong>Demand Preview</strong>
+            <span>Populates with your categories after upload.</span>
+          </li>
+          <li data-id="dem-e-3">
+            <strong>Shortage Tolerance</strong>
+            <span>How much shortage you'll accept per category (default 10%).</span>
+          </li>
+          <li data-id="dem-e-4">
+            <strong>Comparison area</strong>
+            <span>Production vs Demand side-by-side appears after upload.</span>
+          </li>
+        </ol>
+      </div>
+
+      <h3>After upload &mdash; preview, compare, apply</h3>
+      <div class="annotated">
+        <div class="screenshot" data-page="demand-uploaded">
+          <img src="screenshots/demand-uploaded.png" alt="Demand Override after upload" />
+          <div class="marker" style="--x:42%; --y:13%;" data-id="dem-u-1">1</div>
+          <div class="marker" style="--x:78%; --y:11%;" data-id="dem-u-2">2</div>
+          <div class="marker" style="--x:40%; --y:55%;" data-id="dem-u-3">3</div>
+          <div class="marker" style="--x:68%; --y:55%;" data-id="dem-u-4">4</div>
+          <div class="marker" style="--x:87%; --y:55%;" data-id="dem-u-5">5</div>
+          <div class="marker" style="--x:82%; --y:88%;" data-id="dem-u-6">6</div>
+        </div>
+        <ol class="callouts" data-page="demand-uploaded">
+          <li data-id="dem-u-1">
+            <strong>Uploaded file</strong>
+            <span>Name, size, category count. Trash icon removes it.</span>
+          </li>
+          <li data-id="dem-u-2">
+            <strong>Shortage Tolerance</strong>
+            <span>0% strict to 100% loose. Default 10%.</span>
+          </li>
+          <li data-id="dem-u-3">
+            <strong>Demand Preview</strong>
+            <span>Top categories with priority badges and vs-history deltas.</span>
+          </li>
+          <li data-id="dem-u-4">
+            <strong>Production (Before)</strong>
+            <span>The current Production-mode plan, for comparison.</span>
+          </li>
+          <li data-id="dem-u-5">
+            <strong>Demand (After)</strong>
+            <span>The re-optimised plan from your upload.</span>
+          </li>
+          <li data-id="dem-u-6">
+            <strong>Apply or keep</strong>
+            <span>Commit the new plan, or dismiss the upload.</span>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="sku-allocation" class="page-section fade-in">
+      <div class="page-header">
+        <span class="kicker">Archived</span>
+        <h2>SKU Allocation</h2>
+        <p class="lede">Shows how the recommended kilograms split into individual sale items (SKUs) by packaging and category. The packing floor reads this page to know what to fill and how much.</p>
+      </div>
+      <div class="annotated">
+        <div class="screenshot" data-page="sku-allocation">
+          <img src="screenshots/sku-allocation.png" alt="SKU Allocation" />
+          <div class="marker" style="--x:88%; --y:3.5%;" data-id="sku-1">1</div>
+          <div class="marker" style="--x:50%; --y:9%;" data-id="sku-2">2</div>
+          <div class="marker" style="--x:22%; --y:20%;" data-id="sku-3">3</div>
+          <div class="marker" style="--x:50%; --y:20%;" data-id="sku-4">4</div>
+          <div class="marker" style="--x:80%; --y:20%;" data-id="sku-5">5</div>
+          <div class="marker" style="--x:35%; --y:33%;" data-id="sku-6">6</div>
+          <div class="marker" style="--x:50%; --y:67%;" data-id="sku-7">7</div>
+        </div>
+        <ol class="callouts" data-page="sku-allocation">
+          <li data-id="sku-1">
+            <strong>Mode toggle</strong>
+            <span>Demand-based sorts by Coverage. Profit-based sorts by Margin.</span>
+          </li>
+          <li data-id="sku-2">
+            <strong>KPI row</strong>
+            <span>Total SKUs, overall coverage, total allocated kg, shortage kg.</span>
+          </li>
+          <li data-id="sku-3">
+            <strong>Packaging Mix</strong>
+            <span>Donut of the 900 g / 1.2 kg / 1.5 kg pack-size split.</span>
+          </li>
+          <li data-id="sku-4">
+            <strong>Coverage by category</strong>
+            <span>Horizontal bars per category. Red = below target.</span>
+          </li>
+          <li data-id="sku-5">
+            <strong>Demand vs Allocated</strong>
+            <span>Worst-performing SKUs at a glance.</span>
+          </li>
+          <li data-id="sku-6">
+            <strong>Category tabs</strong>
+            <span>Filter the table to one category.</span>
+          </li>
+          <li data-id="sku-7">
+            <strong>SKU table</strong>
+            <span>Per-SKU detail. Searchable and exportable.</span>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="frozen-recommendations" class="page-section fade-in">
+      <div class="page-header">
+        <span class="kicker">Archived</span>
+        <h2>Frozen Recommendations</h2>
+        <p class="lede">Timing, priority, and pricing decisions for frozen inventory. Tells you which frozen categories to hold and which to sell in the coming weeks so you minimise carrying cost and maximise recovery.</p>
+      </div>
+      <div class="annotated">
+        <div class="screenshot" data-page="frozen">
+          <img src="screenshots/frozen-recommendations.png" alt="Frozen Recommendations" />
+          <div class="marker" style="--x:32%; --y:11%;" data-id="frz-1">1</div>
+          <div class="marker" style="--x:50%; --y:18%;" data-id="frz-2">2</div>
+          <div class="marker" style="--x:90%; --y:30%;" data-id="frz-3">3</div>
+          <div class="marker" style="--x:55%; --y:46%;" data-id="frz-4">4</div>
+          <div class="marker" style="--x:50%; --y:81%;" data-id="frz-5">5</div>
+        </div>
+        <ol class="callouts" data-page="frozen">
+          <li data-id="frz-1">
+            <strong>Hold / Sell legend</strong>
+            <span>Grey = hold in cold storage. Blue = sell window.</span>
+          </li>
+          <li data-id="frz-2">
+            <strong>KPI row</strong>
+            <span>Total stock, accumulated carry cost, active sell windows, expected recovery.</span>
+          </li>
+          <li data-id="frz-3">
+            <strong>Month selector</strong>
+            <span>Filter by month.</span>
+          </li>
+          <li data-id="frz-4">
+            <strong>Sell window timeline</strong>
+            <span>Per-category weekly hold / sell plan. Hover any bar for date and stock detail.</span>
+          </li>
+          <li data-id="frz-5">
+            <strong>Storage cost accumulation</strong>
+            <span>Weekly carry-cost growth if stock isn't sold.</span>
+          </li>
+        </ol>
+      </div>
+    </section>
+    -->
 
     <!-- ====== DAILY WORKFLOW ====== -->
     <section id="workflow" class="content-section fade-in">
