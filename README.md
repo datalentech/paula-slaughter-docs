@@ -13,7 +13,7 @@ Built with vanilla HTML + CSS + JS — no framework, no build step, no dependenc
 | `index.html`         | Page structure and content                                |
 | `styles.css`         | Paula-branded design system, layout, responsive rules     |
 | `app.js`             | Marker ↔ callout sync, lightbox, sidebar active state     |
-| `screenshots/`       | The four screen screenshots (PNG): login, dashboard, market-intelligence, settings |
+| `screenshots/`       | Full-page screen captures (PNG): login, planning, run-history, the run-results tabs (`run-*`), market intelligence (`market-*`), evaluation (`evaluation-*`), settings — plus archived shots for retired pages |
 | `.nojekyll`          | Tells GitHub Pages to skip Jekyll processing              |
 
 ---
@@ -84,13 +84,7 @@ Open `index.html` — every section is a `<section>` block. Sections are listed 
 
 ### Re-shoot the screenshots
 
-In the main Paula app repo, the screenshots come from:
-
-```
-docs/screenshots/
-```
-
-If you regenerate them (e.g. after a UI change), copy the new PNGs into this repo's `screenshots/` folder and commit.
+Screenshots are captured from the running frontend (`npm run dev` in the app repo, mocks off so live data renders) with `playwright-core` driving the locally installed Edge: viewport 1440×900, `deviceScaleFactor 2`, `fullPage: true`. Sign in is scripted by setting the `slaughterhouse.gateUser` sessionStorage key. Each app view is deep-linkable (`?tab=`, `?wstart=`…), so a capture script can visit every tab directly. Copy the new PNGs into this repo's `screenshots/` folder and commit.
 
 ---
 
@@ -133,4 +127,4 @@ Modern evergreen browsers (Chrome, Edge, Firefox, Safari). Uses `backdrop-filter
 
 ---
 
-Version 1.0 · May 2026
+Version 3.0 · August 2026 — covers the six-screen app: Planning, Run History, Run Results (seven tabs), Market Intelligence, Evaluation, Settings.
