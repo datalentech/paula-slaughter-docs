@@ -586,32 +586,47 @@
       <h3>Weight Distribution tab</h3>
       <div class="annotated">
         <div class="screenshot" data-page="eval-weight">
-          <img src="screenshots/evaluation-weight-distribution.png" alt="Evaluation — Weight Distribution tab" />
-          <div class="marker" style="--x:26%; --y:29.5%;" data-id="evw-1">1</div>
-          <div class="marker" style="--x:90%; --y:29.7%;" data-id="evw-2">2</div>
-          <div class="marker" style="--x:57%; --y:56%;" data-id="evw-3">3</div>
-          <div class="marker" style="--x:57%; --y:85%;" data-id="evw-4">4</div>
+          <img src="screenshots/evaluation-weight-distribution.png" alt="Evaluation — Weight Distribution tab, scored over 1 April – 1 June 2026" />
+          <div class="marker" style="--x:60%; --y:16%;" data-id="evw-1">1</div>
+          <div class="marker" style="--x:82%; --y:16%;" data-id="evw-2">2</div>
+          <div class="marker" style="--x:36%; --y:19.8%;" data-id="evw-3">3</div>
+          <div class="marker" style="--x:58%; --y:45%;" data-id="evw-4">4</div>
+          <div class="marker" style="--x:50%; --y:67.5%;" data-id="evw-5">5</div>
+          <div class="marker" style="--x:70%; --y:77%;" data-id="evw-6">6</div>
+          <div class="marker" style="--x:58%; --y:86.5%;" data-id="evw-7">7</div>
         </div>
         <ol class="callouts" data-page="eval-weight">
           <li data-id="evw-1">
             <strong>Window &amp; location</strong>
-            <span>Pick a window (up to 92 days; defaults to the last 60) and a location — All locations, Wahat, Regwa, or External.</span>
+            <span>Pick a window (up to 92 days; defaults to the last 60) and a location — All locations, Wahat, Regwa, or External. The screenshot scores 1 April – 1 June 2026, pooled across all locations.</span>
           </li>
           <li data-id="evw-2">
             <strong>Validate range</strong>
-            <span>Loads the scoring for the chosen window. With data, you get four shape-error KPIs (birds in the wrong bucket, spread gap CV, Grade-A supply bias, days scored) and three charts: the recorded Meyn curve vs the predicted seeded shape, where the per-bucket gap sits, and the spread over time.</span>
+            <span>Loads the scoring for the chosen window. Long windows are slow — the service reads the plant's whole Meyn history day by day, so a two-month range can take up to half a minute, and the very first call of the day can time out while the service wakes. If it does, press Validate range again.</span>
           </li>
           <li data-id="evw-3">
-            <strong>Days without history are skipped</strong>
-            <span>The plant does not run every calendar day — a window where no day has a recorded Meyn histogram shows this empty state rather than inventing a score. Try an earlier or wider window.</span>
+            <strong>Shape-error KPIs</strong>
+            <span><em>Birds in the wrong bucket</em> — the median day's total gap between the two curves, lower is better. <em>Spread gap (CV)</em> — whether the seeded shape is wider (+) or tighter (−) than reality. <em>Grade-A supply bias</em> — what that shape error costs in Grade-A supply. <em>Days scored</em>, with the birds recorded behind it.</span>
           </li>
           <li data-id="evw-4">
+            <strong>Recorded vs predicted weight curve</strong>
+            <span>The plant's own Meyn histogram (solid) against the seeded shape the engine predicted (dashed), bird-weighted across the window so a heavy day counts for more than a thin one. The x-axis is dressed weight in kg; the y-axis is each bucket's share of birds.</span>
+          </li>
+          <li data-id="evw-5">
+            <strong>Where the gap sits</strong>
+            <span>The same comparison as a per-bucket difference, in percentage points. Bars above the line are buckets the seed over-fills; below the line, under-fills. The subtitle names the single worst bucket.</span>
+          </li>
+          <li data-id="evw-6">
+            <strong>Spread over time</strong>
+            <span>Each scored day's recorded CV against the seeded one. The seeded line is flat because the engine rescales at constant CV — so a recorded line drifting away from it is the reference shape going stale and due a reseed.</span>
+          </li>
+          <li data-id="evw-7">
             <strong>Method footnote</strong>
-            <span>Always explains what is measured: both curves sit on the same 33-bucket dressed-weight grid, and only <em>shape</em> error is scored — drift of the average weight belongs to the weight &amp; stock forecast.</span>
+            <span>Always explains what is measured: both curves sit on the same 33-bucket dressed-weight grid, only <em>shape</em> error is scored, and it counts the days skipped for having no recorded history — the plant does not run every calendar day.</span>
           </li>
         </ol>
       </div>
-      <p class="note">This tab scores shape error only — drift of the average weight itself belongs to the weight &amp; stock forecast, as the on-screen method footnote says.</p>
+      <p class="note">This tab scores shape error only — drift of the average weight itself belongs to the weight &amp; stock forecast, as the on-screen method footnote says. A window where no day has a recorded Meyn histogram shows an empty state rather than inventing a score; try an earlier or wider window.</p>
     </section>
 
     <!-- ====== SETTINGS ====== -->
