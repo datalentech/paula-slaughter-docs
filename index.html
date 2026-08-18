@@ -25,9 +25,13 @@
     </div>
     <nav aria-label="Sections">
       <a href="#overview">Overview</a>
+      <a href="#whats-new">What's New</a>
       <a href="#login">Sign In</a>
-      <a href="#dashboard">Dashboard</a>
+      <a href="#planning">Planning</a>
+      <a href="#run-history">Run History</a>
+      <a href="#run-results">Run Results</a>
       <a href="#market-intelligence">Market Intelligence</a>
+      <a href="#evaluation">Evaluation</a>
       <a href="#settings">Settings</a>
       <!-- Archived pages — no longer surfaced in the deployed app. Sections preserved
            (commented out) further down so they can be re-enabled if the pages return:
@@ -40,7 +44,7 @@
     </nav>
     <div class="sidebar-footer">
       <span>Module 4 · Cairo 3A</span>
-      <span class="version">v2.0 · June 2026</span>
+      <span class="version">v3.0 · August 2026</span>
     </div>
   </aside>
 
@@ -50,16 +54,37 @@
       <span class="kicker">Slaughterhouse Optimization</span>
       <h1>Paula <span class="hero-accent">Operations Manual</span></h1>
       <p class="lede">
-        Cairo 3A · Module 4 — the dual-mode optimization engine that decides each morning how many birds of which weight to slaughter to maximise profit. The cockpit surfaces the recommended harvest plan, the ranked scenarios behind it, and the market-price forecast that informs it — all behind a single sign-in.
+        Cairo 3A · Module 4 — the dual-mode optimization engine that decides how many birds of which weight to slaughter to maximise profit. The cockpit is where you configure and launch optimization runs, read each run's harvest and cutting plan in depth, check the market forecast the engine plans against, and score how the forecast models performed — all behind a single sign-in.
       </p>
       <ul class="pill-list">
-        <li>3 working screens + sign-in</li>
+        <li>6 screens + sign-in</li>
         <li>Desktop ≥ 1280 px</li>
-        <li>EGP · kg · Cairo time</li>
+        <li>EGP · kg · tonnes</li>
       </ul>
       <p class="hint">
-        Tip: hover a numbered marker on a screenshot to highlight the matching callout. Click any screenshot to zoom.
+        Tip: hover a numbered marker on a screenshot to highlight the matching callout. Click any screenshot to zoom — long pages scroll inside the zoom view.
       </p>
+    </section>
+
+    <!-- ====== WHAT'S NEW ====== -->
+    <section id="whats-new" class="content-section fade-in">
+      <div class="page-header">
+        <span class="kicker">Since the last manual</span>
+        <h2>What's new in this release</h2>
+        <p class="lede">The app has grown substantially since June. If you knew the old three-screen cockpit, here is what changed.</p>
+      </div>
+      <ol class="numbered-list">
+        <li><strong>The Dashboard split in two.</strong> The old home page tried to be both a launcher and a results viewer. Now <em>Planning</em> (the home page) only configures and launches runs, and every run gets its own <em>Run Results</em> page. Pressing Run Optimization takes you straight to the new run's page, where you watch it execute and the results land in place.</li>
+        <li><strong>New Run History screen.</strong> A full, searchable archive of every run — filter by date, mode, status, or a word from the run's note, then open or permanently delete any run.</li>
+        <li><strong>Run results are now seven tabs deep.</strong> Supply, Demand (demand runs), Production, Allocation, What if, Matrix, and Per-day — with a shared Mix / Fresh / Frozen scope filter, Excel exports (full plan + a step-by-step audit trail), and a per-run constraints record in the header.</li>
+        <li><strong>Demand mode moved into the Planning form.</strong> The separate Demand Override page is retired. On a Demand run you attach an Excel demand workbook — or use the model's own forecast, previewed and confirmed before the run — right in the run form.</li>
+        <li><strong>Per-run constraints and category picker.</strong> Override constraints or restrict which product categories a run may produce — for that run only, never written back to configuration.</li>
+        <li><strong>New Evaluation screen.</strong> Scores the forecast models against what actually happened: price-factor accuracy, demand-forecast accuracy, and the bird-weight curve vs the plant's own recorded weights.</li>
+        <li><strong>Market Intelligence rebuilt, fresh-only.</strong> Two tabs — Price Factor and Demand Forecast — covering fresh products only. The old Weight Distribution view moved: its validation now lives on Evaluation, and each run's weight curve on the run's Supply tab.</li>
+        <li><strong>Runs outlive the page.</strong> A floating progress pill follows you on every screen while a run executes, and a notification bell in the sidebar records finished runs — with desktop notifications if you allow them.</li>
+        <li><strong>No more API key entry.</strong> The backend key is baked into the deployment. Sign in and every screen just works; Settings is now purely a read-only reference of the engine's configuration.</li>
+        <li><strong>Money discipline.</strong> Run results deliberately show no EGP figures — economics appear as price factors, cost factors, and profit / contribution indices, and even the fixed-cost alert states a coverage percentage only.</li>
+      </ol>
     </section>
 
     <!-- ====== SIGN IN ====== -->
@@ -67,12 +92,12 @@
       <div class="page-header">
         <span class="kicker">Getting in</span>
         <h2>Sign In</h2>
-        <p class="lede">Paula is access-controlled. Enter the operator credentials to open the cockpit. Your session is remembered for the browser tab until you log out.</p>
+        <p class="lede">Paula is access-controlled. Enter the shared operator credentials to open the cockpit. The session lives in the browser tab — a refresh keeps you signed in, a new tab asks again.</p>
       </div>
       <div class="annotated">
         <div class="screenshot" data-page="login">
           <img src="screenshots/login.png" alt="Paula sign-in screen" />
-          <div class="marker" style="--x:12%; --y:81%;" data-id="log-1">1</div>
+          <div class="marker" style="--x:11%; --y:86%;" data-id="log-1">1</div>
           <div class="marker" style="--x:75%; --y:49%;" data-id="log-2">2</div>
           <div class="marker" style="--x:75%; --y:59%;" data-id="log-3">3</div>
           <div class="marker" style="--x:75%; --y:66%;" data-id="log-4">4</div>
@@ -84,158 +109,571 @@
           </li>
           <li data-id="log-2">
             <strong>Username</strong>
-            <span>Your operator email, supplied by the Datalentech team.</span>
+            <span>The shared operator credential supplied by the Datalentech team — there are no per-user accounts.</span>
           </li>
           <li data-id="log-3">
             <strong>Password</strong>
-            <span>Use the eye icon to reveal what you typed before submitting.</span>
+            <span>Use the eye icon to reveal what you typed. Wrong credentials show an inline error that clears as soon as you edit either field.</span>
           </li>
           <li data-id="log-4">
             <strong>Sign in</strong>
-            <span>Opens the Dashboard. The Log out link sits at the bottom of the sidebar.</span>
+            <span>Stays disabled until both fields are filled. Opens the Planning page; Log out sits at the bottom of the app sidebar and acts immediately.</span>
+          </li>
+        </ol>
+      </div>
+      <p class="note">No API key needed — the backend key is built into the deployment. Once signed in, every screen loads live data.</p>
+    </section>
+
+    <!-- ====== PLANNING ====== -->
+    <section id="planning" class="page-section fade-in">
+      <div class="page-header">
+        <span class="kicker">Page 1</span>
+        <h2>Planning</h2>
+        <p class="lede">The home page. Configure the next optimization run — mode, period, prices, demand data, per-run constraints and categories — then press Run Optimization. Results never render here: you're taken straight to the new run's own page. The newest 7 runs sit below so the landing page is never empty.</p>
+      </div>
+      <div class="annotated">
+        <div class="screenshot" data-page="planning">
+          <img src="screenshots/planning.png" alt="Planning page" />
+          <div class="marker" style="--x:26%; --y:21%;" data-id="pln-1">1</div>
+          <div class="marker" style="--x:29%; --y:28%;" data-id="pln-2">2</div>
+          <div class="marker" style="--x:24%; --y:35%;" data-id="pln-3">3</div>
+          <div class="marker" style="--x:71%; --y:24%;" data-id="pln-4">4</div>
+          <div class="marker" style="--x:30%; --y:40%;" data-id="pln-5">5</div>
+          <div class="marker" style="--x:86%; --y:45.3%;" data-id="pln-6">6</div>
+          <div class="marker" style="--x:45%; --y:73%;" data-id="pln-7">7</div>
+        </div>
+        <ol class="callouts" data-page="planning">
+          <li data-id="pln-1">
+            <strong>Run type</strong>
+            <span>Production maximises profit from available supply; Demand plans against attached demand orders. Your last-used mode is remembered.</span>
+          </li>
+          <li data-id="pln-2">
+            <strong>Period</strong>
+            <span>Opens a booking-style two-month calendar. Pick start and end in two clicks; the past is fully open (historical runs are first-class) and the end date can reach at most one month ahead.</span>
+          </li>
+          <li data-id="pln-3">
+            <strong>Prices &amp; farm stock</strong>
+            <span>Model (forecast) or Actual market prices. With Actual, a Farm stock toggle appears — With sales / Without sales — choosing which historical stock the supply figures count.</span>
+          </li>
+          <li data-id="pln-4">
+            <strong>Demand data <em>(Demand mode)</em></strong>
+            <span>Attach an .xlsx demand workbook (template download available) or switch to the Model forecast — which must be previewed and ticked "I've reviewed the forecast preview" before the run can start.</span>
+          </li>
+          <li data-id="pln-5">
+            <strong>Run note, Constraints &amp; Categories</strong>
+            <span>An optional note to find the run later, plus two per-run panels: constraint overrides and a category picker restricting what the run may produce. Both apply to this run only and are discarded afterwards.</span>
+          </li>
+          <li data-id="pln-6">
+            <strong>Readiness line &amp; Run Optimization</strong>
+            <span>The footer always states exactly what will run — or the one thing still blocking it. The red button fires the run and takes you to its results page.</span>
+          </li>
+          <li data-id="pln-7">
+            <strong>Recent runs</strong>
+            <span>The newest 7 runs with date, mode, status badge and note — click any row to open it. "See all runs" opens the full Run History. Deliberately no profit column.</span>
+          </li>
+        </ol>
+      </div>
+      <p class="note">The form is a draft that survives navigation — mode, period, prices, attached demand set, note, constraint and category changes are all still there when you come back. While a run is in flight, a banner with live progress appears here, and a floating pill follows you on every screen.</p>
+    </section>
+
+    <!-- ====== RUN HISTORY ====== -->
+    <section id="run-history" class="page-section fade-in">
+      <div class="page-header">
+        <span class="kicker">Page 2</span>
+        <h2>Run History</h2>
+        <p class="lede">The full archive of every optimization run, newest first. Filter by created date, mode, status, or a word from the run's note; open any run's results, or permanently delete a run you no longer need.</p>
+      </div>
+      <div class="annotated">
+        <div class="screenshot" data-page="run-history">
+          <img src="screenshots/run-history.png" alt="Run History page" />
+          <div class="marker" style="--x:26%; --y:9%;" data-id="hist-1">1</div>
+          <div class="marker" style="--x:47%; --y:9%;" data-id="hist-2">2</div>
+          <div class="marker" style="--x:68%; --y:9%;" data-id="hist-3">3</div>
+          <div class="marker" style="--x:45%; --y:45%;" data-id="hist-4">4</div>
+          <div class="marker" style="--x:92%; --y:21%;" data-id="hist-5">5</div>
+          <div class="marker" style="--x:87%; --y:96.5%;" data-id="hist-6">6</div>
+        </div>
+        <ol class="callouts" data-page="run-history">
+          <li data-id="hist-1">
+            <strong>Created-date filter</strong>
+            <span>Defaults to the last 3 days, so the page opens on recent runs. Older runs aren't missing — widen the window, or Clear filters for all of history.</span>
+          </li>
+          <li data-id="hist-2">
+            <strong>Mode &amp; status filters</strong>
+            <span>Production / Demand, and Completed / Degraded / Failed / Running / Queued. "Completed" includes degraded runs; pick "Degraded" to see only those.</span>
+          </li>
+          <li data-id="hist-3">
+            <strong>Search</strong>
+            <span>Matches any part of the run's description note, ignoring case. Runs with no note never match a search.</span>
+          </li>
+          <li data-id="hist-4">
+            <strong>Runs table</strong>
+            <span>Date, mode, a coloured status badge, and the note. Click anywhere on a row to open that run's results page.</span>
+          </li>
+          <li data-id="hist-5">
+            <strong>Open &amp; delete</strong>
+            <span>The trash icon opens a confirmation — deleting is hard and permanent, saved results included. An in-progress run is stopped first ("Stop and delete").</span>
+          </li>
+          <li data-id="hist-6">
+            <strong>Pager</strong>
+            <span>20 runs per page, with "{shown} of {total} runs" counting the entire filtered set. Rows stay visible while the next page loads.</span>
           </li>
         </ol>
       </div>
     </section>
 
-    <!-- ====== DASHBOARD ====== -->
-    <section id="dashboard" class="page-section fade-in">
+    <!-- ====== RUN RESULTS ====== -->
+    <section id="run-results" class="page-section fade-in">
       <div class="page-header">
-        <span class="kicker">Page 1</span>
-        <h2>Dashboard</h2>
-        <p class="lede">The home page. Shows the recommended harvest plan across the horizon and the ranked scenarios behind that recommendation, with a day-by-day breakdown underneath.</p>
+        <span class="kicker">Page 3</span>
+        <h2>Run Results</h2>
+        <p class="lede">Every run has its own results page — reached by starting a run, clicking a history row, or a shared link. While the run executes you watch it here; when it lands, the results render across seven tabs. The tab, scope and selections live in the page address, so a shared link reproduces exactly what you see. Money never appears on this page — economics are factors and indices.</p>
       </div>
+
+      <h3>Header &amp; Supply tab — what the run harvested</h3>
       <div class="annotated">
-        <div class="screenshot" data-page="dashboard">
-          <img src="screenshots/dashboard.png" alt="Paula Dashboard" />
-          <div class="marker" style="--x:24%; --y:2.6%;" data-id="dash-1">1</div>
-          <div class="marker" style="--x:42%; --y:6.5%;" data-id="dash-2">2</div>
-          <div class="marker" style="--x:20%; --y:10%;" data-id="dash-3">3</div>
-          <div class="marker" style="--x:22%; --y:23%;" data-id="dash-4">4</div>
-          <div class="marker" style="--x:80%; --y:23%;" data-id="dash-5">5</div>
-          <div class="marker" style="--x:50%; --y:44%;" data-id="dash-6">6</div>
-          <div class="marker" style="--x:28%; --y:65%;" data-id="dash-7">7</div>
-          <div class="marker" style="--x:30%; --y:84%;" data-id="dash-8">8</div>
+        <div class="screenshot" data-page="run-supply">
+          <img src="screenshots/run-supply.png" alt="Run Results — Supply tab" />
+          <div class="marker" style="--x:54%; --y:5.4%;" data-id="rs-1">1</div>
+          <div class="marker" style="--x:84%; --y:5.4%;" data-id="rs-2">2</div>
+          <div class="marker" style="--x:35%; --y:13%;" data-id="rs-3">3</div>
+          <div class="marker" style="--x:30%; --y:17%;" data-id="rs-4">4</div>
+          <div class="marker" style="--x:27%; --y:22.3%;" data-id="rs-5">5</div>
+          <div class="marker" style="--x:26%; --y:42%;" data-id="rs-6">6</div>
+          <div class="marker" style="--x:26%; --y:65%;" data-id="rs-7">7</div>
         </div>
-        <ol class="callouts" data-page="dashboard">
-          <li data-id="dash-1">
-            <strong>Header &amp; export</strong>
-            <span>Page title, the harvest-plan date range, Export full plan, and Recent runs history.</span>
+        <ol class="callouts" data-page="run-supply">
+          <li data-id="rs-1">
+            <strong>Run identity</strong>
+            <span>"Run results" with the period range and the run's note (pencil icon to edit). Chips state the loaded period, a "Historical" badge on past-period runs, the demand source on demand runs, and the constraints record — hover it to see each constraint honored, exceeded, or removed.</span>
           </li>
-          <li data-id="dash-2">
-            <strong>View &amp; run controls</strong>
-            <span>Month / Day view, the start–end date range, the Production / Demand mode, Actual prices and Packing toggles, and the red Run Optimization button.</span>
+          <li data-id="rs-2">
+            <strong>Exports &amp; delete</strong>
+            <span>"Export full plan" downloads the plan workbook (Excel). "Audit trail" downloads every step and selection the optimizer made — including candidates it rejected. The red trash deletes the run permanently.</span>
           </li>
-          <li data-id="dash-3">
-            <strong>KPI row</strong>
-            <span>Horizon Profit · Avg Birds / day · Avg Weight · Days below FC.</span>
+          <li data-id="rs-3">
+            <strong>Tab strip</strong>
+            <span>Supply · Demand (demand runs only) · Production · Allocation · What if · Matrix · Per-day. A freshly opened run lands on Supply.</span>
           </li>
-          <li data-id="dash-4">
-            <strong>Profit by scenario</strong>
-            <span>Every scenario ranked by profit. The winner is the tallest bar; weaker options fade out.</span>
+          <li data-id="rs-4">
+            <strong>Supply KPIs</strong>
+            <span>Total birds, total net meat (t), average dressed weight per bird (live × 0.73), and each farm's monthly loss factor.</span>
           </li>
-          <li data-id="dash-5">
-            <strong>Fresh / frozen mix</strong>
-            <span>Donut of the fresh-vs-frozen share across the whole horizon.</span>
+          <li data-id="rs-5">
+            <strong>Daily stock by location</strong>
+            <span>Stacked bars of birds per day, one segment per farm source and flock class — dark shade heavy, pale shade light. Hover for the exact split.</span>
           </li>
-          <li data-id="dash-6">
-            <strong>Scenario comparison</strong>
-            <span>Full ranked table of every Light + Heavy combination — profit, status, and best strategy. Searchable and exportable.</span>
+          <li data-id="rs-6">
+            <strong>Weight distribution</strong>
+            <span>Birds per dressed-weight bin, stacked by farm source, with a light/heavy class toggle, CV per class, and the packing window marked.</span>
           </li>
-          <li data-id="dash-7">
-            <strong>Profit over time</strong>
-            <span>Daily profit across the horizon. Any day that falls below the fixed-cost line is flagged in red.</span>
-          </li>
-          <li data-id="dash-8">
-            <strong>Per-day plan</strong>
-            <span>One row per working day — strategy, Light / Heavy birds, output kg, and profit. Click a row to drill into that day.</span>
+          <li data-id="rs-7">
+            <strong>Farm supply per day</strong>
+            <span>Per-day, per-farm stock and average weight. A "Forecast" tag marks projected rows; untagged rows record what actually happened.</span>
           </li>
         </ol>
       </div>
+
+      <h3>Production tab — what the run produced, per category</h3>
+      <div class="annotated">
+        <div class="screenshot" data-page="run-production">
+          <img src="screenshots/run-production.png" alt="Run Results — Production tab" />
+          <div class="marker" style="--x:22%; --y:14.5%;" data-id="rp-1">1</div>
+          <div class="marker" style="--x:30%; --y:23.5%;" data-id="rp-2">2</div>
+          <div class="marker" style="--x:50%; --y:35.5%;" data-id="rp-3">3</div>
+          <div class="marker" style="--x:50%; --y:60%;" data-id="rp-4">4</div>
+          <div class="marker" style="--x:24%; --y:78.5%;" data-id="rp-5">5</div>
+        </div>
+        <ol class="callouts" data-page="run-production">
+          <li data-id="rp-1">
+            <strong>Run totals</strong>
+            <span>Fresh / Frozen / Total cards — production in tonnes and, on demand runs, the demand served and a large "Production achievement" percentage (the demand ledger's served-vs-target ratio).</span>
+          </li>
+          <li data-id="rp-2">
+            <strong>Scope bar</strong>
+            <span>Mix | Fresh | Frozen narrows Production, Allocation, What if and Matrix at once; a blue ribbon reminds you the figures below are not run totals. "Show all" resets.</span>
+          </li>
+          <li data-id="rp-3">
+            <strong>Top categories</strong>
+            <span>Up to four hero cards — tonnage, price / cost factor pair, and a fresh/frozen mini split.</span>
+          </li>
+          <li data-id="rp-4">
+            <strong>Category economics</strong>
+            <span>Every category's produced tonnes, fresh/frozen split, yield, price factor, cost factor, profit index and contribution index — sortable, searchable. Expand a category to see the cutting options that produced it. On demand runs, demand, coverage and outstanding columns join in, and a "Not produced" badge marks ordered-but-unmade categories.</span>
+          </li>
+          <li data-id="rp-5">
+            <strong>Production plan</strong>
+            <span>Every allocated cutting option ranked by contribution index; expand one to see the categories it produced. Packing producers carry a "Packing" badge with per-weight-band sub-rows.</span>
+          </li>
+        </ol>
+      </div>
+
+      <h3>Allocation tab — output by dressed-weight band</h3>
+      <div class="annotated">
+        <div class="screenshot" data-page="run-allocation">
+          <img src="screenshots/run-allocation.png" alt="Run Results — Allocation tab" />
+          <div class="marker" style="--x:37%; --y:29.5%;" data-id="ra-1">1</div>
+          <div class="marker" style="--x:33%; --y:36.4%;" data-id="ra-2">2</div>
+          <div class="marker" style="--x:27%; --y:79.5%;" data-id="ra-3">3</div>
+        </div>
+        <ol class="callouts" data-page="run-allocation">
+          <li data-id="ra-1">
+            <strong>Day-window filter</strong>
+            <span>A strip of day pills — click one day, or drag / shift-click a range — to recompute the whole tab for just those days. "Whole horizon" resets.</span>
+          </li>
+          <li data-id="ra-2">
+            <strong>Allocation spine</strong>
+            <span>A mass histogram over dressed-weight bands (column height = produced tonnes) above a strip plotting each chosen option's contribution index, on one shared weight axis. Every band is clickable.</span>
+          </li>
+          <li data-id="ra-3">
+            <strong>Band detail</strong>
+            <span>Select a band to see the cutting options allocated to it — produced tonnes, yield, factors and indices — each expandable into its category breakdown. A closed-by-default disclosure shows every band as one accessible table.</span>
+          </li>
+        </ol>
+      </div>
+
+      <h3>What if tab — why this plan, and what the alternatives were worth</h3>
+      <div class="annotated">
+        <div class="screenshot" data-page="run-what-if">
+          <img src="screenshots/run-what-if.png" alt="Run Results — What if tab" />
+          <div class="marker" style="--x:23%; --y:23%;" data-id="rw-1">1</div>
+          <div class="marker" style="--x:28%; --y:49.3%;" data-id="rw-2">2</div>
+          <div class="marker" style="--x:88%; --y:59%;" data-id="rw-3">3</div>
+        </div>
+        <ol class="callouts" data-page="run-what-if">
+          <li data-id="rw-1">
+            <strong>Chosen plan</strong>
+            <span>The cutting options and packing the optimizer actually allocated, with the economics they actually earned — the only real tonnes on this tab.</span>
+          </li>
+          <li data-id="rw-2">
+            <strong>If every bird ran one option</strong>
+            <span>Every catalogue option evaluated as if the whole horizon had run it, ranked by contribution index. A verdict box names where the chosen option ranks and which option ranked first.</span>
+          </li>
+          <li data-id="rw-3">
+            <strong>Scenario toggle</strong>
+            <span>Mixed | All Fresh | All Frozen — three whole-bird scenarios, not a product filter. Expand any row to see every category that option would produce. "Not run-eligible" rows are shown for comparison, never as missed opportunities.</span>
+          </li>
+        </ol>
+      </div>
+
+      <h3>Matrix tab — day × category heatmap</h3>
+      <div class="annotated">
+        <div class="screenshot" data-page="run-matrix">
+          <img src="screenshots/run-matrix.png" alt="Run Results — Matrix tab" />
+          <div class="marker" style="--x:25%; --y:41%;" data-id="rm-1">1</div>
+          <div class="marker" style="--x:61%; --y:41%;" data-id="rm-2">2</div>
+          <div class="marker" style="--x:93%; --y:34%;" data-id="rm-3">3</div>
+          <div class="marker" style="--x:37%; --y:94.5%;" data-id="rm-4">4</div>
+        </div>
+        <ol class="callouts" data-page="run-matrix">
+          <li data-id="rm-1">
+            <strong>Categories × days</strong>
+            <span>One row per category, one column per day; each cell prints its tonnes over a heat fill. An em-dash means nothing recorded — never zero.</span>
+          </li>
+          <li data-id="rm-2">
+            <strong>Cell hover</strong>
+            <span>Shows the tonnes, the fresh / frozen split, and the category's price and cost factors for that day.</span>
+          </li>
+          <li data-id="rm-3">
+            <strong>Totals</strong>
+            <span>A trailing Total column per category and a bottom Total row per day meet at the horizon's grand total.</span>
+          </li>
+          <li data-id="rm-4">
+            <strong>Day panel</strong>
+            <span>Click any day's header, cell, or total to open that day's plan below — the chosen options with cap attribution, plus the same what-if ranking at day grain, evaluated at the day's own representative weight.</span>
+          </li>
+        </ol>
+      </div>
+
+      <h3>Per-day tab — the day ledger</h3>
+      <div class="annotated">
+        <div class="screenshot" data-page="run-per-day">
+          <img src="screenshots/run-per-day.png" alt="Run Results — Per-day tab" />
+          <div class="marker" style="--x:57%; --y:18%;" data-id="rd-1">1</div>
+          <div class="marker" style="--x:24%; --y:26%;" data-id="rd-2">2</div>
+          <div class="marker" style="--x:38%; --y:36%;" data-id="rd-3">3</div>
+        </div>
+        <ol class="callouts" data-page="run-per-day">
+          <li data-id="rd-1">
+            <strong>Per-day options &amp; sources</strong>
+            <span>One row per day — strategy, Light / Heavy / Total birds, Fresh and Frozen tonnes, the day's price-factor summary, and a viability badge ("Cap-limited" marks cap-bound days; breached days tint red). Export CSV at the top. This tab always shows whole-run figures.</span>
+          </li>
+          <li data-id="rd-2">
+            <strong>Monthly orders</strong>
+            <span>Frozen orders are owed by the production month, not by any single day — frozen made in one month ships across the next. Met / Breach status and an independent Unproduced / Part-produced badge per category pool.</span>
+          </li>
+          <li data-id="rd-3">
+            <strong>Day drill-down</strong>
+            <span>Click a day to open its detail: the day plan (cutting option, strategy, supply sources, recommended supply, price and cost factors, fresh/frozen output), the day's orders ledger, and its per-category economics with a share-of-day composition bar.</span>
+          </li>
+        </ol>
+      </div>
+
+      <h3>Demand tab — what a demand run served <em>(demand runs only)</em></h3>
+      <div class="annotated">
+        <div class="screenshot" data-page="run-demand">
+          <img src="screenshots/run-demand.png" alt="Run Results — Demand tab" />
+          <div class="marker" style="--x:29%; --y:19%;" data-id="rde-1">1</div>
+          <div class="marker" style="--x:48%; --y:32%;" data-id="rde-2">2</div>
+          <div class="marker" style="--x:25%; --y:37%;" data-id="rde-3">3</div>
+          <div class="marker" style="--x:30%; --y:58%;" data-id="rde-4">4</div>
+        </div>
+        <ol class="callouts" data-page="run-demand">
+          <li data-id="rde-1">
+            <strong>Source banner</strong>
+            <span>Where this run's demand came from — an uploaded workbook, the model forecast, or the API — with its window, timestamps, total tonnes and row count. Always the run's own saved demand set, never the live preview.</span>
+          </li>
+          <li data-id="rde-2">
+            <strong>Demand KPIs</strong>
+            <span>Total demand (t), daily average, days, and categories — with a local Mix / Fresh / Frozen toggle when the set states temperatures.</span>
+          </li>
+          <li data-id="rde-3">
+            <strong>Demand chart</strong>
+            <span>Fresh (red) and Frozen (blue) side by side, switchable between a by-day and a by-category axis. Frozen is restated as this run's pro-rated share of the delivery month's order — the on-screen note explains it.</span>
+          </li>
+          <li data-id="rde-4">
+            <strong>Category table</strong>
+            <span>Each category's fresh / frozen / total demand and share of the window — expand a row for its per-day demand curve.</span>
+          </li>
+        </ol>
+      </div>
+      <p class="note">While a run executes, this page shows a live progress caption with a day counter ("Running optimization — day 3 of 14…") over a skeleton, and the results replace it the moment the run lands. A failed or cancelled run says so explicitly — a crash is never confused with old data.</p>
     </section>
 
     <!-- ====== MARKET INTELLIGENCE ====== -->
     <section id="market-intelligence" class="page-section fade-in">
       <div class="page-header">
-        <span class="kicker">Page 2</span>
+        <span class="kicker">Page 4</span>
         <h2>Market Intelligence</h2>
-        <p class="lede">The forecast that feeds the engine. Shows the modelled live-bird price and the predicted selling price per product category across the planning horizon, so you can sense-check the plan against where the market is heading.</p>
+        <p class="lede">The forecast model's forward view of the market — for fresh products only. Two tabs: predicted price factors (or EGP/kg selling prices) per SKU, and the model's weekly demand forecast in tonnes per category. Strictly forecast-only: realized actuals and accuracy live on the Evaluation screen.</p>
       </div>
+
+      <h3>Price Factor tab</h3>
       <div class="annotated">
-        <div class="screenshot" data-page="market">
-          <img src="screenshots/market-intelligence.png" alt="Market Intelligence" />
-          <div class="marker" style="--x:20%; --y:4%;" data-id="mkt-1">1</div>
-          <div class="marker" style="--x:55%; --y:9%;" data-id="mkt-2">2</div>
-          <div class="marker" style="--x:25%; --y:18%;" data-id="mkt-3">3</div>
-          <div class="marker" style="--x:25%; --y:31%;" data-id="mkt-4">4</div>
-          <div class="marker" style="--x:35%; --y:46%;" data-id="mkt-5">5</div>
-          <div class="marker" style="--x:42%; --y:68%;" data-id="mkt-6">6</div>
+        <div class="screenshot" data-page="market-price">
+          <img src="screenshots/market-price-factor.png" alt="Market Intelligence — Price Factor tab" />
+          <div class="marker" style="--x:50%; --y:15%;" data-id="mkp-1">1</div>
+          <div class="marker" style="--x:28%; --y:27%;" data-id="mkp-2">2</div>
+          <div class="marker" style="--x:24%; --y:35.5%;" data-id="mkp-3">3</div>
+          <div class="marker" style="--x:26%; --y:52%;" data-id="mkp-4">4</div>
+          <div class="marker" style="--x:89%; --y:53%;" data-id="mkp-5">5</div>
+          <div class="marker" style="--x:24%; --y:83%;" data-id="mkp-6">6</div>
         </div>
-        <ol class="callouts" data-page="market">
-          <li data-id="mkt-1">
-            <strong>Header &amp; tabs</strong>
-            <span>Switch between the Price Forecast view and the Weight Distribution view.</span>
-          </li>
-          <li data-id="mkt-2">
+        <ol class="callouts" data-page="market-price">
+          <li data-id="mkp-1">
             <strong>Range controls</strong>
-            <span>Pick a start date, set the horizon (days), choose how to group, then Load range to refresh the forecast.</span>
+            <span>Start date, horizon (1–120 days), group-by (Whole vs cuts / Product) and metric (Price factor / Price per kg). Nothing reloads until you press "Load range" — the loaded range is written into the address, so links are shareable.</span>
           </li>
-          <li data-id="mkt-3">
+          <li data-id="mkp-2">
             <strong>KPI row</strong>
-            <span>SKUs in view · Avg predicted price (EGP/kg) · Horizon trend · Market coverage.</span>
+            <span>SKUs in view · Avg price factor (×) · Horizon trend (first → last day) · Model coverage — the share of forecasts routed via the LightGBM model rather than a lookup fallback.</span>
           </li>
-          <li data-id="mkt-4">
+          <li data-id="mkp-3">
             <strong>Live bird price</strong>
-            <span>The modelled farm-gate live-bird price driving all downstream SKU prices.</span>
+            <span>The farm-gate input every price factor multiplies. Headline midpoint, low–high range, horizon delta, and a band chart of the uncertainty across the range.</span>
           </li>
-          <li data-id="mkt-5">
-            <strong>Predicted price by category</strong>
-            <span>Forecast selling price per category over time. Use the legend on the right to compare or isolate categories.</span>
+          <li data-id="mkp-4">
+            <strong>Price factor by category</strong>
+            <span>One line per category group; check groups in the rail to drill into individual SKUs ("← All categories" goes back). A factor of 2.40 = predicted to sell at 2.4× the live-bird price.</span>
           </li>
-          <li data-id="mkt-6">
-            <strong>Price grid</strong>
-            <span>The full day-by-day predicted price table per category. Export to CSV.</span>
+          <li data-id="mkp-5">
+            <strong>Categories rail</strong>
+            <span>The drill-down control — checking groups switches the chart, KPIs and grid to the SKUs inside them.</span>
+          </li>
+          <li data-id="mkp-6">
+            <strong>Price grid + CSV</strong>
+            <span>The full series × date matrix, heat-shaded, with frozen header and first column. CSV always exports per-SKU, per-day values, whatever the on-screen grouping. "—" means no prediction, not zero.</span>
           </li>
         </ol>
       </div>
+
+      <h3>Demand Forecast tab</h3>
+      <div class="annotated">
+        <div class="screenshot" data-page="market-demand">
+          <img src="screenshots/market-demand-forecast.png" alt="Market Intelligence — Demand Forecast tab" />
+          <div class="marker" style="--x:50%; --y:18%;" data-id="mkd-1">1</div>
+          <div class="marker" style="--x:27%; --y:32%;" data-id="mkd-2">2</div>
+          <div class="marker" style="--x:28%; --y:42%;" data-id="mkd-3">3</div>
+          <div class="marker" style="--x:23%; --y:78%;" data-id="mkd-4">4</div>
+        </div>
+        <ol class="callouts" data-page="market-demand">
+          <li data-id="mkd-1">
+            <strong>Weekly controls</strong>
+            <span>Start date and a horizon of 1–4 weeks — the cap is hard, the model only predicts 4 weeks out. Weeks end on Saturday. This tab keeps its own range, separate from the price tab's.</span>
+          </li>
+          <li data-id="mkd-2">
+            <strong>Forecast KPIs</strong>
+            <span>Total forecast demand (t) · average per week · horizon trend · peak week. All tonnes; forecast-only — no actuals anywhere on this tab.</span>
+          </li>
+          <li data-id="mkd-3">
+            <strong>Forecast demand by category</strong>
+            <span>Tonnes per week-end date, per category group — drill into individual categories via the rail, which also shows each group's window total.</span>
+          </li>
+          <li data-id="mkd-4">
+            <strong>Demand grid + CSV</strong>
+            <span>Category × week matrix with a "top 10" badge on the model's top categories. Careful: the CSV exports raw kg (×1000 vs the screen) and carries the model components behind each blended number.</span>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ====== EVALUATION ====== -->
+    <section id="evaluation" class="page-section fade-in">
+      <div class="page-header">
+        <span class="kicker">Page 5</span>
+        <h2>Evaluation</h2>
+        <p class="lede">How the forecast models performed against realized actuals. Three tabs, each scoring one model: price-factor accuracy, demand-forecast accuracy, and the predicted bird-weight curve vs the plant's own recorded weights. Use it to judge which categories the models get wrong, in which direction, and whether the errors are worsening.</p>
+      </div>
+
+      <h3>Factor Validation tab</h3>
+      <div class="annotated">
+        <div class="screenshot" data-page="eval-factor">
+          <img src="screenshots/evaluation-factor-validation.png" alt="Evaluation — Factor Validation tab" />
+          <div class="marker" style="--x:27%; --y:14%;" data-id="evf-1">1</div>
+          <div class="marker" style="--x:40%; --y:22%;" data-id="evf-2">2</div>
+          <div class="marker" style="--x:27%; --y:31.5%;" data-id="evf-3">3</div>
+          <div class="marker" style="--x:24%; --y:68%;" data-id="evf-4">4</div>
+        </div>
+        <ol class="callouts" data-page="eval-factor">
+          <li data-id="evf-1">
+            <strong>Prediction month</strong>
+            <span>Step months with ◀ / ▶ (back to January 2025, forward to the current month). The current month scores partial actuals up to today.</span>
+          </li>
+          <li data-id="evf-2">
+            <strong>Accuracy KPIs</strong>
+            <span>Overall weighted MAPE (lower is better), scored coverage, categories scored, rows scored — fresh categories only, with the predicted window and actuals reach stated beneath.</span>
+          </li>
+          <li data-id="evf-3">
+            <strong>MAPE by category</strong>
+            <span>Horizontal bars, worst at the bottom. Green ≤ 8%, amber 8–15%, red above 15%, with dashed threshold lines.</span>
+          </li>
+          <li data-id="evf-4">
+            <strong>Category table + CSV</strong>
+            <span>Every scored category, sortable and searchable. A "Low sample" badge (fewer than 5 rows) mutes the value — noise, not a regression. CSV always exports all categories.</span>
+          </li>
+        </ol>
+      </div>
+
+      <h3>Demand Accuracy tab</h3>
+      <div class="annotated">
+        <div class="screenshot" data-page="eval-demand">
+          <img src="screenshots/evaluation-demand-accuracy.png" alt="Evaluation — Demand Accuracy tab" />
+          <div class="marker" style="--x:27%; --y:20%;" data-id="evd-1">1</div>
+          <div class="marker" style="--x:40%; --y:31%;" data-id="evd-2">2</div>
+          <div class="marker" style="--x:25%; --y:41.5%;" data-id="evd-3">3</div>
+          <div class="marker" style="--x:77%; --y:54%;" data-id="evd-4">4</div>
+        </div>
+        <ol class="callouts" data-page="eval-demand">
+          <li data-id="evd-1">
+            <strong>Scored month</strong>
+            <span>The tab finds the latest month that can actually be scored on its own — stepping back automatically until the scoring service accepts one. Scoring covers whole Saturday-ending weeks.</span>
+          </li>
+          <li data-id="evd-2">
+            <strong>Accuracy &amp; bias KPIs</strong>
+            <span>Company MAPE (the Total Fresh rollup), category mean MAPE, signed bias — over- or under-forecasting — and the scored window.</span>
+          </li>
+          <li data-id="evd-3">
+            <strong>MAPE by category</strong>
+            <span>Same shape as the factor chart, looser bands: amber from 8%, red only above 25%. Hover a bar for its signed bias and row count.</span>
+          </li>
+          <li data-id="evd-4">
+            <strong>Week-type split &amp; scope</strong>
+            <span>Accuracy split by the kind of week being predicted, plus a scope footnote naming the target, window and top categories — so the numbers are interpretable.</span>
+          </li>
+        </ol>
+      </div>
+
+      <h3>Weight Distribution tab</h3>
+      <div class="annotated">
+        <div class="screenshot" data-page="eval-weight">
+          <img src="screenshots/evaluation-weight-distribution.png" alt="Evaluation — Weight Distribution tab, scored over 1 April – 1 June 2026" />
+          <div class="marker" style="--x:60%; --y:16%;" data-id="evw-1">1</div>
+          <div class="marker" style="--x:82%; --y:16%;" data-id="evw-2">2</div>
+          <div class="marker" style="--x:36%; --y:19.8%;" data-id="evw-3">3</div>
+          <div class="marker" style="--x:58%; --y:45%;" data-id="evw-4">4</div>
+          <div class="marker" style="--x:50%; --y:67.5%;" data-id="evw-5">5</div>
+          <div class="marker" style="--x:70%; --y:77%;" data-id="evw-6">6</div>
+          <div class="marker" style="--x:58%; --y:86.5%;" data-id="evw-7">7</div>
+        </div>
+        <ol class="callouts" data-page="eval-weight">
+          <li data-id="evw-1">
+            <strong>Window &amp; location</strong>
+            <span>Pick a window (up to 92 days; defaults to the last 60) and a location — All locations, Wahat, Regwa, or External. The screenshot scores 1 April – 1 June 2026, pooled across all locations.</span>
+          </li>
+          <li data-id="evw-2">
+            <strong>Validate range</strong>
+            <span>Loads the scoring for the chosen window. Long windows are slow — the service reads the plant's whole Meyn history day by day, so a two-month range can take up to half a minute, and the very first call of the day can time out while the service wakes. If it does, press Validate range again.</span>
+          </li>
+          <li data-id="evw-3">
+            <strong>Shape-error KPIs</strong>
+            <span><em>Birds in the wrong bucket</em> — the median day's total gap between the two curves, lower is better. <em>Spread gap (CV)</em> — whether the seeded shape is wider (+) or tighter (−) than reality. <em>Grade-A supply bias</em> — what that shape error costs in Grade-A supply. <em>Days scored</em>, with the birds recorded behind it.</span>
+          </li>
+          <li data-id="evw-4">
+            <strong>Recorded vs predicted weight curve</strong>
+            <span>The plant's own Meyn histogram (solid) against the seeded shape the engine predicted (dashed), bird-weighted across the window so a heavy day counts for more than a thin one. The x-axis is dressed weight in kg; the y-axis is each bucket's share of birds.</span>
+          </li>
+          <li data-id="evw-5">
+            <strong>Where the gap sits</strong>
+            <span>The same comparison as a per-bucket difference, in percentage points. Bars above the line are buckets the seed over-fills; below the line, under-fills. The subtitle names the single worst bucket.</span>
+          </li>
+          <li data-id="evw-6">
+            <strong>Spread over time</strong>
+            <span>Each scored day's recorded CV against the seeded one. The seeded line is flat because the engine rescales at constant CV — so a recorded line drifting away from it is the reference shape going stale and due a reseed.</span>
+          </li>
+          <li data-id="evw-7">
+            <strong>Method footnote</strong>
+            <span>Always explains what is measured: both curves sit on the same 33-bucket dressed-weight grid, only <em>shape</em> error is scored, and it counts the days skipped for having no recorded history — the plant does not run every calendar day.</span>
+          </li>
+        </ol>
+      </div>
+      <p class="note">This tab scores shape error only — drift of the average weight itself belongs to the weight &amp; stock forecast, as the on-screen method footnote says. A window where no day has a recorded Meyn histogram shows an empty state rather than inventing a score; try an earlier or wider window.</p>
     </section>
 
     <!-- ====== SETTINGS ====== -->
     <section id="settings" class="page-section fade-in">
       <div class="page-header">
-        <span class="kicker">Page 3</span>
+        <span class="kicker">Page 6</span>
         <h2>Settings</h2>
-        <p class="lede">Manage backend access and review — read-only — the parameters and cutting recipes the optimization engine runs on. This is the page to open the first time a browser connects to the live backend.</p>
+        <p class="lede">A read-only reference for the optimization engine's configuration — every parameter it runs with, grouped by namespace, and the active cutting recipes. Nothing here can change anything: editing, version history and rollback are a later phase. There is no API key to manage any more — access is built into the deployment.</p>
       </div>
       <div class="annotated">
         <div class="screenshot" data-page="settings">
           <img src="screenshots/settings.png" alt="Settings" />
-          <div class="marker" style="--x:28%; --y:11%;" data-id="set-1">1</div>
-          <div class="marker" style="--x:28%; --y:24%;" data-id="set-2">2</div>
-          <div class="marker" style="--x:28%; --y:40%;" data-id="set-3">3</div>
+          <div class="marker" style="--x:29%; --y:32%;" data-id="set-1">1</div>
+          <div class="marker" style="--x:87%; --y:32.5%;" data-id="set-2">2</div>
+          <div class="marker" style="--x:91%; --y:46%;" data-id="set-3">3</div>
+          <div class="marker" style="--x:27%; --y:63%;" data-id="set-4">4</div>
         </div>
         <ol class="callouts" data-page="settings">
           <li data-id="set-1">
-            <strong>API Access</strong>
-            <span>Paste the backend API key for this browser. It's sent as <code>X-API-Key</code> on every live request. Use Test connection to confirm it works, then Save.</span>
+            <strong>Configuration</strong>
+            <span>The engine's parameters, one namespace at a time — each key with its type, current value, default, and allowed range. An amber "Modified" badge marks values changed from their default (hover it for the default and who last changed it).</span>
           </li>
           <li data-id="set-2">
-            <strong>Configuration</strong>
-            <span>A live, read-only view of the engine's parameters, grouped by namespace (capacity, calendar, costs, …). Pick a namespace to inspect its keys.</span>
+            <strong>Filter &amp; CSV</strong>
+            <span>Filter keys by name or description; CSV downloads the whole selected namespace (the filter never narrows the export).</span>
           </li>
           <li data-id="set-3">
+            <strong>View JSON</strong>
+            <span>JSON-typed parameters expand into a readable Fields view (or Raw, with a copy button) instead of an inline value.</span>
+          </li>
+          <li data-id="set-4">
             <strong>Cutting Options</strong>
-            <span>The active cutting recipes from the engine, grouped by option (Chest Deboning, Whole Chicken, Whole Leg Cutting, …) with per-product yield and supply percentages.</span>
+            <span>The active cutting recipes, one card per option — cuts, yields (shown as % of live weight, matching the Yield column on run tables), weight ranges in grams, and allowed grades. Loads when you first expand the section.</span>
           </li>
         </ol>
       </div>
+      <p class="note">What you see is cached in the browser for about 5 minutes — a value changed on the backend can take up to 5 minutes, or a page reload, to appear.</p>
     </section>
 
     <!-- ============================================================ -->
     <!-- ARCHIVED SECTIONS — pages the deployed app no longer surfaces -->
     <!-- (Demand Override, SKU Allocation, Frozen Recommendations).    -->
-    <!-- Kept here, commented out, so they can be restored if the      -->
-    <!-- pages come back. Their screenshots remain in screenshots/.    -->
+    <!-- Demand Override's job moved INTO the Planning form (Demand    -->
+    <!-- mode); SKU Allocation's route is switched off; Frozen Recs    -->
+    <!-- is hidden. Kept here, commented out, so they can be restored  -->
+    <!-- if the pages come back. Their screenshots remain in           -->
+    <!-- screenshots/.                                                 -->
     <!-- To re-enable: uncomment the block below + the nav links above. -->
     <!-- ============================================================ -->
     <!--
@@ -411,19 +849,20 @@
       <div class="page-header">
         <span class="kicker">Day in the life</span>
         <h2>A typical day with Paula</h2>
-        <p class="lede">A common morning routine takes 5–10 minutes.</p>
+        <p class="lede">A common morning routine takes 10–15 minutes.</p>
       </div>
       <ol class="numbered-list">
-        <li><strong>Sign in</strong> — open Paula and enter your operator credentials.</li>
-        <li><strong>Land on the Dashboard</strong> — the latest optimization run is already loaded for the current horizon.</li>
-        <li><strong>Glance at the KPI row</strong> — Horizon Profit, Avg Birds / day, Avg Weight, and Days below FC.</li>
-        <li><strong>Scan Profit by scenario</strong> — confirm the recommended scenario and check whether any options fall below the fixed-cost line.</li>
-        <li><strong>Read the per-day plan</strong> — make sure each day's strategy and Light / Heavy split matches production capacity; click a day to drill in if a number looks off.</li>
-        <li><strong>Open Market Intelligence</strong> — sanity-check the plan against the forecast live-bird price and the predicted price per category for the days ahead.</li>
-        <li><strong>Re-run if needed</strong> — adjust the range or mode on the Dashboard and press Run Optimization, then Export full plan.</li>
-        <li><strong>Share the approved plan</strong> with the packing floor and freezer teams.</li>
+        <li><strong>Sign in</strong> — open Paula and enter the operator credentials. You land on Planning.</li>
+        <li><strong>Configure the run</strong> — pick Production or Demand, set the period on the calendar, choose Model or Actual prices. On a Demand run, attach the demand workbook (or use the model forecast and tick the preview confirmation).</li>
+        <li><strong>Optional per-run tweaks</strong> — open Constraints to override a limit for this run only, or Categories to restrict what the run may produce. Both are discarded after the run.</li>
+        <li><strong>Press Run Optimization</strong> — you're taken to the run's own page. Runs take minutes; the floating pill follows you if you navigate away, and the bell records the result.</li>
+        <li><strong>Read the results tab by tab</strong> — Supply (what was harvested), Production (what was made, per category, with its economics), Allocation (output by weight band), What if (how the chosen plan compares to every alternative), Matrix (day × category), Per-day (the day ledger; drill into any day). On a Demand run, the Demand tab shows exactly what was served.</li>
+        <li><strong>Watch the alerts</strong> — a red "Period below fixed cost" banner, red-tinted breach days, or "Cap-limited" badges tell you where the plan is strained.</li>
+        <li><strong>Export and share</strong> — "Export full plan" (Excel) for the packing floor and freezer teams; "Audit trail" when someone asks <em>why</em> the optimizer chose what it chose.</li>
+        <li><strong>Sanity-check the market</strong> — open Market Intelligence for the predicted price factors, live-bird band, and the 4-week demand forecast.</li>
+        <li><strong>Periodically, check Evaluation</strong> — confirm the forecast models still deserve trust: factor MAPE, demand MAPE and bias, and the weight-curve fit.</li>
       </ol>
-      <p class="note">First time on a new browser? Open <strong>Settings → API Access</strong>, paste the backend key, Test connection, and Save before the live data will load.</p>
+      <p class="note">Runs keep going if you close the page — reopen them from Run History or the notification bell. Loading can be slow on a cold start (up to ~30 seconds); a view that spins for a while and then recovers on its own is normal.</p>
     </section>
 
     <!-- ====== GLOSSARY ====== -->
@@ -433,25 +872,38 @@
         <h2>Glossary</h2>
       </div>
       <dl class="glossary">
-        <dt>EGP</dt><dd>Egyptian pound — currency unit throughout Paula.</dd>
-        <dt>Horizon</dt><dd>The planning window the optimization run covers — a range of working days (e.g. 30 days).</dd>
-        <dt>Light bird</dt><dd>Chicken in the lighter weight class, average ≈ 1.5 kg.</dd>
-        <dt>Heavy bird</dt><dd>Chicken in the heavier weight class, average ≈ 2 kg.</dd>
-        <dt>Fresh</dt><dd>Product sold this month, not frozen.</dd>
-        <dt>Frozen</dt><dd>Product moved to cold storage to be sold next month or later.</dd>
+        <dt>EGP</dt><dd>Egyptian pound. Appears on Market Intelligence (prices) — run results deliberately show no money at all.</dd>
+        <dt>Horizon</dt><dd>The planning window an optimization run covers — a range of working days.</dd>
+        <dt>Production mode</dt><dd>Default run type — the engine maximises profit from available supply, with no demand orders.</dd>
+        <dt>Demand mode</dt><dd>Run type that plans against a demand set — an uploaded workbook, the model forecast, or API-supplied orders.</dd>
+        <dt>Demand set</dt><dd>The per-day, per-category orders a demand run serves. Saved with the run — the run page always shows the run's own set, never the live forecast.</dd>
+        <dt>Light / Heavy bird</dt><dd>The two flock weight classes. Their split per day shows on the run's Supply and Per-day tabs.</dd>
+        <dt>Fresh</dt><dd>Product sold in the production month, not frozen.</dd>
+        <dt>Frozen</dt><dd>Product moved to cold storage — made in one month, delivered across the next. Frozen orders are owed by the month, not by any single day.</dd>
         <dt>Strategy</dt><dd>How a day's output splits across fresh and frozen: All Fresh, All Frozen, or Mixed.</dd>
-        <dt>Scenario</dt><dd>One combination of Light + Heavy birds the engine evaluates each run.</dd>
-        <dt>Production mode</dt><dd>Default mode — the engine maximises profit from available supply.</dd>
-        <dt>Demand mode</dt><dd>Alternative mode that biases the plan toward a supplied demand forecast.</dd>
-        <dt>Fixed cost (FC)</dt><dd>The fixed-cost threshold the operation must beat. Currently 41.4 million EGP.</dd>
-        <dt>Best</dt><dd>The scenario with the highest expected profit — the engine's recommendation.</dd>
-        <dt>Viable</dt><dd>A scenario that clears the fixed cost but is not the top performer.</dd>
-        <dt>Below FC</dt><dd>A day or scenario whose expected profit is below the fixed-cost threshold; flagged in red.</dd>
-        <dt>Live bird price</dt><dd>The modelled farm-gate price per kg of live chicken that drives all downstream selling prices.</dd>
-        <dt>Market coverage</dt><dd>Share of forecast SKUs the model has a reliable price for.</dd>
+        <dt>Temperature scope</dt><dd>The Mix | Fresh | Frozen filter on the run page's Production, Allocation, What if and Matrix tabs. While narrowed, figures are not run totals — a ribbon says so.</dd>
+        <dt>Dressed weight</dt><dd>A bird's weight after processing ≈ live weight × 0.73 (the plant's standing loss factor). Weight bands and distributions are in dressed grams.</dd>
+        <dt>Weight band</dt><dd>A dressed-weight range (e.g. 1,200–1,300 g) that output is allocated into — the grain of the Allocation tab.</dd>
+        <dt>Loss factor</dt><dd>Per-farm monthly rate of executed rejects plus mortality over total harvested — shown on the Supply tab.</dd>
+        <dt>Cutting option</dt><dd>A cutting recipe the engine can apply (e.g. Chest Deboning, Whole Chicken), defining how a carcass splits into products. Recipes are listed in Settings.</dd>
+        <dt>Packing</dt><dd>Whole-bird packing as a producer, allocated per weight band. Packing-only categories can never be deselected from a run.</dd>
+        <dt>Byproduct</dt><dd>A category that falls out of the cut regardless (e.g. offal) — deselecting it changes nothing, and uploaded byproduct demand is ignored.</dd>
+        <dt>Price factor</dt><dd>A category or SKU's predicted selling price as a multiple of the live-bird price — 2.40 means 2.4× the live-bird price that day.</dd>
+        <dt>Cost factor</dt><dd>The cost side expressed the same way. Price factor minus cost factor is the margin per unit — the profit index.</dd>
+        <dt>Profit index</dt><dd>Price factor minus cost factor — dimensionless margin, comparable across categories.</dd>
+        <dt>Contribution index</dt><dd>The optimizer's ranking measure for a cutting option — how much a tonne through that option contributes. What-if rankings sort by it, not by output.</dd>
+        <dt>What-if scenario</dt><dd>A counterfactual: how every catalogue option would perform if the whole horizon (or one day) had run it — under Mixed, All Fresh, or All Frozen. The only actual tonnes on that tab are in "Chosen plan".</dd>
+        <dt>Fixed cost (FC)</dt><dd>The cost threshold the period must cover. The run page reports coverage as a percentage only — no EGP figure is shown.</dd>
+        <dt>Viability</dt><dd>A day's status against fixed cost on the Per-day tab; breached days tint red.</dd>
+        <dt>Cap-limited</dt><dd>A day or option clipped by a maximum constraint. A warning, not an error — exceeded soft caps are supported outcomes.</dd>
+        <dt>Constraint</dt><dd>A limit the optimizer must respect (birds, kg, or percentage; hard or soft; per day or per period). Durable constraints live in configuration; per-run overrides in the Planning form.</dd>
+        <dt>Degraded</dt><dd>A run recorded as completed whose result carries a caveat — shown amber in run lists; the "Completed" filter includes it.</dd>
+        <dt>Live bird price</dt><dd>The modelled farm-gate price per kg of live chicken that every price factor multiplies.</dd>
+        <dt>Model coverage</dt><dd>On Market Intelligence: the share of forecasts routed via the LightGBM model rather than a lookup fallback.</dd>
+        <dt>MAPE</dt><dd>Mean absolute percentage error — the Evaluation screen's headline accuracy measure. Lower is better.</dd>
+        <dt>Bias</dt><dd>The signed direction of forecast error — positive is over-forecasting, negative under-forecasting.</dd>
+        <dt>CV</dt><dd>Coefficient of variation — a unitless measure of how spread out the flock's weights are.</dd>
         <dt>Namespace</dt><dd>A group of related engine parameters on the Settings page (e.g. capacity, calendar, costs).</dd>
-        <dt>Cutting option</dt><dd>A cutting recipe the engine can apply (e.g. Chest Deboning, Whole Chicken), defining how a carcass splits into products.</dd>
-        <dt>API key</dt><dd>The backend access key entered in Settings, sent as <code>X-API-Key</code> on every live request.</dd>
       </dl>
     </section>
 
