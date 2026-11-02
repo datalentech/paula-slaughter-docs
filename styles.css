@@ -630,3 +630,9 @@ main {
   .glossary dd { padding-top: 0 !important; border-top: none !important; }
   .marker { width: 28px; height: 28px; font-size: 12px; border-width: 2px; }
 }
+
+/* Reference tables (roles, per-cut figures, planned agent) */
+.table-wrap { overflow-x: auto; margin: 16px 0 20px; }
+.data-table { width: 100%; border-collapse: collapse; font-size: 14px; background: var(--bg-card); }
+.data-table th { text-align: left; color: var(--text-secondary); font-weight: 600; padding: 10px 12px; border-bottom: 2px solid #E5E7EB; }
+.data-table td { padding: 10px 12px; border-bottom: 1px solid #E5E7EB; vertical-align: top; color: var(--text-primary); }
