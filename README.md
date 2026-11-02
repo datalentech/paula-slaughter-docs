@@ -13,7 +13,7 @@ Built with vanilla HTML + CSS + JS — no framework, no build step, no dependenc
 | `index.html`         | Page structure and content                                |
 | `styles.css`         | Paula-branded design system, layout, responsive rules     |
 | `app.js`             | Marker ↔ callout sync, lightbox, sidebar active state     |
-| `screenshots/`       | Full-page screen captures (PNG): login, planning, run-history, the run-results tabs (`run-*`), market intelligence (`market-*`), evaluation (`evaluation-*`), settings — plus archived shots for retired pages |
+| `screenshots/`       | Screen captures (PNG): login, planning, run-history, the run-results tabs (`run-*`), demand sets, commercial (`commercial-*`, `terms-*`, `sales-teams`), SKU allocation, frozen advice, market intelligence (`market-*`), evaluation (`evaluation-*`), settings — plus archived shots for retired pages |
 | `.nojekyll`          | Tells GitHub Pages to skip Jekyll processing              |
 
 ---
@@ -84,7 +84,12 @@ Open `index.html` — every section is a `<section>` block. Sections are listed 
 
 ### Re-shoot the screenshots
 
-Screenshots are captured from the running frontend (`npm run dev` in the app repo, mocks off so live data renders) with `playwright-core` driving the locally installed Edge: viewport 1440×900, `deviceScaleFactor 2`, `fullPage: true`. Sign in is scripted by setting the `slaughterhouse.gateUser` sessionStorage key. Each app view is deep-linkable (`?tab=`, `?wstart=`…), so a capture script can visit every tab directly. Copy the new PNGs into this repo's `screenshots/` folder and commit.
+**This site is public, so screenshots must not show real customer names, staff emails or Arabic customer or item names.** Two capture routes were used for v4.0:
+
+- **Mock data (preferred):** run the frontend with `VITE_USE_MOCKS=true npx vite`, which signs in automatically, and capture with `playwright-core` driving local Chrome: viewport 1440×900, `deviceScaleFactor 2`, `fullPage: true`. Replace any real-looking brand names in the mock data before capturing. Used for Planning, Commercial, Discounts & rebates, Sales teams, SKU Allocation, Frozen recommendations and SKU & customer mapping.
+- **Live `dev` tab:** for screens the mocks do not fill (Run History, Run Results, Demand sets, Market Intelligence, Evaluation, Settings). View only, with names replaced in the page before capture.
+
+The Allocation, What if, Matrix, Per-day, Demand and Demand Forecast shots are still from August and are flagged as such in the manual. Copy new PNGs into `screenshots/`.
 
 ---
 
@@ -127,4 +132,4 @@ Modern evergreen browsers (Chrome, Edge, Firefox, Safari). Uses `backdrop-filter
 
 ---
 
-Version 3.0 · August 2026 — covers the six-screen app: Planning, Run History, Run Results (seven tabs), Market Intelligence, Evaluation, Settings.
+Version 4.0 · November 2026 — written against frontend `main` at commit `8a70ed9`. Covers Planning, Run History, Run Results, Demand sets, Commercial cycles, Discounts & rebates, Sales teams, SKU Allocation, Frozen recommendations, Market Intelligence, Evaluation, Settings and the Cutting sheet, plus the planned Plan Analysis Agent.
